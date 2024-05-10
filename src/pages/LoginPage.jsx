@@ -47,7 +47,7 @@ const Wrapper = styled.div`
   width: 384px;
   display: flex;
   flex-direction: column;
-  margin: 50vh auto;
+  margin: 50vh auto 0;
   transform: translate(0, -50%);
   gap: 24px;
 
