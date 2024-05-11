@@ -1,5 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import FooterBtn from "./FooterBtn";
+
+import footer_escrow from "../../assets/common/footer/footer_escrow.svg";
+import location from "../../assets/common/footer/location.svg";
+import arr from "../../assets/common/footer/arr.svg";
 
 const Footer = () => {
   return (
@@ -19,7 +24,7 @@ const Footer = () => {
       </div>
 
       <div className="bottom">
-        <div className="container">
+        <Container>
           <p className="title">(주)알라딘커뮤니케이션 중고매장</p>
 
           <div className="info">
@@ -40,13 +45,28 @@ const Footer = () => {
             </div>
             <p className="grey">ⓒ Aladin Communication. All Rights Reserved.</p>
           </div>
-        </div>
 
-        <div className="container">
+          <FooterBtn
+            icon={footer_escrow}
+            text={"중고매장 위치, 영업시간 안내"}
+            icon2={arr}
+          />
+        </Container>
+
+        <Container>
           <p className="title">고객센터 1544-2514 (발신자 부담)</p>
 
           <p>서울시 마포구 백범로 71 숨도빌딩 7층 Fax 02-6926-2600</p>
-        </div>
+
+          <Btns>
+            <div className="row">
+              <FooterBtn text={"1:1 문의"} isShort={true} />
+              <FooterBtn text={"FAQ"} isShort={true} />
+            </div>
+
+            <FooterBtn icon={location} text={"중고매장 위치, 영업시간 안내"} />
+          </Btns>
+        </Container>
       </div>
     </Wrapper>
   );
@@ -75,36 +95,47 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     gap: 118px;
+  }
+`;
 
-    .container {
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .line2 {
       display: flex;
-      flex-direction: column;
       gap: 16px;
     }
 
-    .title {
-      font-size: 16px;
-      font-weight: 700;
-    }
-
-    .info {
+    .line3 {
       display: flex;
-      flex-direction: column;
-      gap: 8px;
-
-      .line2 {
-        display: flex;
-        gap: 16px;
-      }
-
-      .line3 {
-        display: flex;
-        gap: 33px;
-      }
-
-      .grey {
-        color: var(--grey2);
-      }
+      gap: 33px;
     }
+
+    .grey {
+      color: var(--grey2);
+    }
+  }
+`;
+
+const Btns = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .row {
+    display: flex;
+    gap: 8px;
   }
 `;
