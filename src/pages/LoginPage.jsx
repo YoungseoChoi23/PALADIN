@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import kakao_login from "../assets/kakao_login.svg";
+import kakao_login from "../assets/login/kakao_login.svg";
 
 const LoginPage = () => {
   const [checked, setChecked] = useState(false);
