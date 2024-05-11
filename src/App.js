@@ -1,5 +1,11 @@
+import LoginPage from "./pages/LoginPage";
+import { Route, Routes } from "react-router-dom";
 function App() {
-  return <div className="App">리드 토이 2팀</div>;
+  return (
+    <Routes>
+      <Route path="/login" element={<LoginPage />} />
+    </Routes>
+  );
 }
 
 export default App;
