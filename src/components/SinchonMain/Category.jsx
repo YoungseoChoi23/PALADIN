@@ -83,7 +83,6 @@ const CategoryBox = styled.div`
     border: 1px solid #9cb1d6;
     background: #fff;
     display: flex;
-    cursor: pointer;
   }
   .box-col1 {
     display: flex;
@@ -105,7 +104,6 @@ const CategoryBox = styled.div`
     font-weight: 700;
     line-height: normal;
     flex-shrink: 0;
-    cursor: pointer;
   }
   .box-col1 button.active {
     display: flex;
@@ -123,7 +121,6 @@ const CategoryBox = styled.div`
     font-weight: 700;
     line-height: normal;
     border: none;
-    cursor: pointer;
   }
   .box-col2 {
     display: flex;
