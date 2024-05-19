@@ -6,19 +6,34 @@ const RecordDetailItem = ({ title, source, type, price, state }) => {
     <>
       <DetailItem>
         <div className="record-detail-item">
-          <div className="record-item-img"></div>
+          <div className={`${type}-item-img`}></div>
           <div className="text-btns">
-            <div className="record-item-text">
-              <div className="title">{title}</div>
-              <div className="source">{source}</div>
-              <div className="location">
-                {type} 위치: <p>A17</p> (위에서부터 4번째칸)
+            <div className="record-item-texts">
+              <div className="record-item-text">
+                <div className={`title-${type}`}>{title}</div>
+                <div className="source">{source}</div>
+                {type === "음반" ? (
+                  <div className="location">
+                    {type} 위치: <p>A17</p> (위에서부터 4번째칸)
+                  </div>
+                ) : (
+                  <></>
+                )}
+                <div className="price">
+                  가격: <p>{price}</p>
+                </div>
+                <div className="state">
+                  상태:<p>{state}</p>
+                </div>
               </div>
-              <div className="price">
-                가격: <p>{price}</p>
-              </div>
-              <div className="state">
-                상태:<p>{state}</p>
+              <div className="detail-text2">
+                {type === "도서" ? (
+                  <div className="location">
+                    {type} 위치: <p>A17</p> (위에서부터 4번째칸)
+                  </div>
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
             <div className="buttons">
@@ -41,9 +56,15 @@ const DetailItem = styled.div`
     display: flex;
     justify-content: start;
   }
-  .record-item-img {
+  .음반-item-img {
     width: 180px;
     height: 180px;
+    flex-shrink: 0;
+    background: #d9d9d9;
+  }
+  .도서-item-img {
+    width: 180px;
+    height: 240px;
     flex-shrink: 0;
     background: #d9d9d9;
   }
@@ -62,7 +83,32 @@ const DetailItem = styled.div`
     justify-content: start;
     gap: 10px;
   }
-  .title {
+  .record-item-texts {
+    display: flex;
+  }
+  .detail-text2 {
+    display: flex;
+    align-items: center;
+    margin-top: 45px;
+  }
+  .title-도서 {
+    color: #000;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: flex;
+    justify-content: start;
+    display: flex;
+    width: 134px;
+    height: 31px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .title-음반 {
     color: #000;
     text-align: center;
     font-family: Pretendard;
@@ -122,6 +168,7 @@ const DetailItem = styled.div`
     font-weight: 500;
     line-height: normal;
     border: none;
+    cursor: pointer;
   }
   .add-cart {
     display: inline-flex;
@@ -138,5 +185,6 @@ const DetailItem = styled.div`
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    cursor: pointer;
   }
 `;

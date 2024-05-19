@@ -2,27 +2,27 @@ import Detail from "../../components/detail/Detail";
 import DetailTab from "../../components/detail/DetailTap";
 import styled from "styled-components";
 
-const RecordDetailPage = () => {
+const BookDetailPage = () => {
   return (
     <>
       <DetailStyle>
         <DetailWrapper>
           <Detail
-            title_text="음반 제목"
-            title_more=""
-            source="가수/발매사"
+            title_text="도서 제목"
+            title_more="[2022년 사회과학 분야 1위]"
+            source="출판사/지은이"
             stock="n부"
             lowest_price="7000원"
-            regular_price="13500원"
-            type="음반"
+            regular_price="13000원"
+            type="도서"
           />
-          <DetailTab2 isRecord={true} />
+          <DetailTab isRecord={false} />
         </DetailWrapper>
       </DetailStyle>
     </>
   );
 };
-export default RecordDetailPage;
+export default BookDetailPage;
 
 const DetailStyle = styled.div`
   width: 1200px;

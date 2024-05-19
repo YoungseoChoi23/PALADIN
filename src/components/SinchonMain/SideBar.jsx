@@ -35,7 +35,7 @@ const SideBarBox = styled.div`
     box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
-    background: var(--02, #999);
+    background: var(--grey2);
     color: var(--00, #fff);
     font-family: Pretendard;
     font-size: 12px;
@@ -51,9 +51,9 @@ const SideBarBox = styled.div`
     padding: 16px;
     box-sizing: border-box;
     align-items: center;
-    border-bottom: 1px solid var(--01, #e9e9e9);
+    border-bottom: 1px solid var(--grey1);
     background: var(--00, #fff);
-    color: var(--02, #999);
+    color: var(--grey2);
     font-family: Pretendard;
     font-size: 12px;
     font-style: normal;

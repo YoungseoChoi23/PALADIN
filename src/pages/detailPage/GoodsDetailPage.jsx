@@ -1,28 +1,29 @@
 import Detail from "../../components/detail/Detail";
 import DetailTab from "../../components/detail/DetailTap";
 import styled from "styled-components";
+import DetailTab2 from "../../components/detail/DetailTap2";
 
-const RecordDetailPage = () => {
+const GoodsDetailPage = () => {
   return (
     <>
       <DetailStyle>
         <DetailWrapper>
           <Detail
-            title_text="음반 제목"
+            title_text="감쪽같은 수정테이프"
             title_more=""
-            source="가수/발매사"
+            source="상품정보: 총 6m"
             stock="n부"
             lowest_price="7000원"
-            regular_price="13500원"
-            type="음반"
+            regular_price=""
+            type="상품"
           />
-          <DetailTab2 isRecord={true} />
+          <DetailTab2 />
         </DetailWrapper>
       </DetailStyle>
     </>
   );
 };
-export default RecordDetailPage;
+export default GoodsDetailPage;
 
 const DetailStyle = styled.div`
   width: 1200px;

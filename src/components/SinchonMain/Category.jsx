@@ -4,10 +4,10 @@ import styled from "styled-components";
 
 const Category = () => {
   const navigate = useNavigate();
-  const [activeButton, setactiveButton] = useState("국내도서");
+  const [activeButton, setactiveButton] = useState(1);
 
-  const handleButtonClick = buttonName => {
-    setactiveButton(buttonName === activeButton ? buttonName : buttonName);
+  const handleButtonClick = buttonId => {
+    setactiveButton(buttonId === activeButton ? buttonId : buttonId);
   };
 
   const handlePage = () => {
@@ -19,20 +19,20 @@ const Category = () => {
       <div className="category-box">
         <div className="box-col1">
           <button
-            className={activeButton === "국내도서" ? "active" : "inactive"}
-            onClick={() => handleButtonClick("국내도서")}
+            className={activeButton === 1 ? "active" : "inactive"}
+            onClick={() => handleButtonClick(1)}
           >
             국내도서
           </button>
           <button
-            className={activeButton === "외국도서" ? "active" : "inactive"}
-            onClick={() => handleButtonClick("외국도서")}
+            className={activeButton === 2 ? "active" : "inactive"}
+            onClick={() => handleButtonClick(2)}
           >
             외국도서
           </button>
           <button
-            className={activeButton === "음반·비디오" ? "active" : "inactive"}
-            onClick={() => handleButtonClick("음반·비디오")}
+            className={activeButton === 3 ? "active" : "inactive"}
+            onClick={() => handleButtonClick(3)}
           >
             음반·비디오
           </button>
@@ -96,8 +96,8 @@ const CategoryBox = styled.div`
     align-items: center;
     white-space: nowrap;
     border: 1px solid #9cb1d6;
-    background: #e8edf6;
-    color: var(---, #3962ad);
+    background: var(----blue1);
+    color: var(--blue3);
     font-family: Pretendard;
     font-size: 14px;
     font-style: normal;
@@ -113,7 +113,7 @@ const CategoryBox = styled.div`
     align-items: center;
     flex-shrink: 0;
     white-space: nowrap;
-    background: var(---, #3962ad);
+    background: var(--blue3);
     color: var(--00, #fff);
     font-family: Pretendard;
     font-size: 14px;
@@ -149,7 +149,7 @@ const CategoryBox = styled.div`
   .inner-border {
     width: 560px;
     height: 1px;
-    background: #e9e9e9;
+    background: var(--grey1);
     margin: auto;
     margin-top: 0;
     margin-bottom: 0;

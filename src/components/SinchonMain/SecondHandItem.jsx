@@ -28,7 +28,7 @@ const Item = styled.div`
     gap: 8px;
   }
   .name {
-    color: var(---, #010101);
+    color: var(--black);
     font-family: Pretendard;
     font-size: 16px;
     font-style: normal;
@@ -41,7 +41,7 @@ const Item = styled.div`
     margin: auto;
   }
   .price {
-    color: var(--02, #ea328f);
+    color: var(--pink);
     font-family: Pretendard;
     font-size: 14px;
     font-style: normal;
@@ -49,7 +49,7 @@ const Item = styled.div`
     line-height: normal;
   }
   .discount {
-    color: var(--02, #999);
+    color: var(--grey2);
     font-family: Pretendard;
     font-size: 14px;
     font-style: normal;

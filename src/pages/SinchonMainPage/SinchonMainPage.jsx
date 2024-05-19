@@ -2,7 +2,6 @@ import banner from "../../assets/S_main/banner.svg";
 import map from "../../assets/S_main/map.svg";
 import cross_section from "../../assets/S_main/cross_section.svg";
 
-import close from "../../assets/S_main/close.svg";
 import styled from "styled-components";
 import React, { useState } from "react";
 import Category from "../../components/SinchonMain/Category";
@@ -10,21 +9,7 @@ import SideBar from "../../components/SinchonMain/SideBar";
 import SecondHandBook from "../../components/SinchonMain/SecondHandBook";
 import Record from "../../components/SinchonMain/Record";
 import Goods from "../../components/SinchonMain/Goods";
-
-const GetDirectionModal = ({ img, isOpen, onClose }) => {
-  return (
-    <>
-      {isOpen && (
-        <ModalOverlay>
-          <ModalContent>
-            <img src={img} />
-            <img className="close" src={close} onClick={onClose} />
-          </ModalContent>
-        </ModalOverlay>
-      )}
-    </>
-  );
-};
+import GetDirectionModal from "../../components/SinchonMain/GetDirectionModal";
 
 const SinchonMainPage = () => {
   const [isMapModalOpen, setIsMapModalOpen] = useState(false);
@@ -163,9 +148,9 @@ const Wrapper = styled.div`
     align-items: center;
     gap: 8px;
     border-radius: 4px;
-    border: 1px solid var(---, #3962ad);
-    background: var(---, #e8edf6);
-    color: var(---, #3962ad);
+    border: 1px solid var(--blue3);
+    background: var(--blue1);
+    color: var(--blue3);
     text-align: center;
     font-family: Pretendard;
     font-size: 12px;
@@ -180,9 +165,9 @@ const Wrapper = styled.div`
     align-items: center;
     gap: 8px;
     border-radius: 4px;
-    border: 1px solid var(---, #3962ad);
-    background: var(---, #e8edf6);
-    color: var(---, #3962ad);
+    border: 1px solid var(--blue3);
+    background: var(--blue1);
+    color: var(--blue3);
     text-align: center;
     font-family: Pretendard;
     font-size: 12px;
@@ -206,27 +191,4 @@ const SideBars = styled.div`
   flex-direction: column;
   margin-top: 40px;
   margin-left: 24px;
-`;
-const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* 배경을 흐리게 처리 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const ModalContent = styled.div`
-  position: fixed;
-  top: 200px;
-  display: flex;
-  margin: 0;
-  .close {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-  }
 `;

@@ -3,7 +3,7 @@ import RecordDetailItem from "./RecordDetailItem";
 import styled from "styled-components";
 import Review from "./Review";
 
-const DetailTab = () => {
+const DetailTab = ({ isRecord }) => {
   const [tab, setTab] = useState("left");
   const [filter, setFilter] = useState("상품명순");
   const filterChange = filterName => {
@@ -86,20 +86,41 @@ const DetailTab = () => {
               </p>
             </div>
             <ItemWrapper>
-              <RecordDetailItem
-                title="음반 제목"
-                source="가수/발매사"
-                type="음반"
-                price="7000원"
-                state="상"
-              />
-              <RecordDetailItem
-                title="음반 제목"
-                source="가수/발매사"
-                type="음반"
-                price="7000원"
-                state="상"
-              />
+              {isRecord ? (
+                <>
+                  <RecordDetailItem
+                    title="음반 제목"
+                    source="가수/발매사"
+                    type="음반"
+                    price="7000원"
+                    state="상"
+                  />
+                  <RecordDetailItem
+                    title="음반 제목"
+                    source="가수/발매사"
+                    type="음반"
+                    price="7000원"
+                    state="상"
+                  />
+                </>
+              ) : (
+                <>
+                  <RecordDetailItem
+                    title="[중고] 도서 제목"
+                    source="출판사/지은이"
+                    type="도서"
+                    price="7000원"
+                    state="상"
+                  />
+                  <RecordDetailItem
+                    title="[중고] 도서 제목"
+                    source="출판사/지은이"
+                    type="도서"
+                    price="7000원"
+                    state="상"
+                  />
+                </>
+              )}
             </ItemWrapper>
           </>
         ) : tab == "mid" ? (
