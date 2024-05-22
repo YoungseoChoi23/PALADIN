@@ -1,11 +1,11 @@
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "./pages/Login/LoginPage";
 import SinchonMainPage from "./pages/SinchonMainPage/SinchonMainPage";
 
 import { Route, Routes } from "react-router-dom";
 import RecordDetailPage from "./pages/detailPage/RecordDetailPage";
 import BookDetailPage from "./pages/detailPage/BookDetailPage";
 import GoodsDetailPage from "./pages/detailPage/GoodsDetailPage";
-import LoginLoadingPage from "./pages/LoginLoadingPage";
+import LoginLoadingPage from "./pages/Login/LoginLoadingPage";
 
 function App() {
   return (
