@@ -1,26 +1,22 @@
 import React, { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { postAuthCode } from "../services/api/auth";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const LoginLoadingPage = () => {
-  const location = useLocation();
-  const KAKAO_CODE = location.search.split("=")[1]; // 인가코드
+  const [searchParams, _] = useSearchParams();
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    postAuthCode(KAKAO_CODE)
-      .then(res => {
-        console.log(res);
-        if (res.status === 201) {
-          localStorage.setItem("token", res.data);
-          navigate("/");
-          window.location.reload();
-        }
-      })
-      .catch(err => {
-        alert("로그인에 실패하였습니다.");
-        navigate("/login");
-      });
+    const accessToken = searchParams.get("accessToken");
+
+    if (accessToken) {
+      localStorage.setItem("token", `Bearer ${accessToken}`);
+      navigate("/");
+      window.location.reload();
+    } else {
+      alert("로그인에 실패하였습니다.");
+      navigate("/login");
+    }
   }, []);
 
   return <div>로그인 중...</div>;
