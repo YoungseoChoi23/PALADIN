@@ -22,3 +22,21 @@ export const getExample = async () => {
     return Promise.resolve(error);
   }
 };
+
+export const getProduct = async () => {
+  try {
+    const response = await client.get(`/api/items?store=신촌점`);
+    return Promise.resolve(response);
+  } catch (error) {
+    return Promise.resolve(error);
+  }
+};
+
+export const Procductdetail = async ({ productId }) => {
+  try {
+    const response = await client.get(`/api/products/${productId}`);
+    return Promise.resolve(response);
+  } catch (error) {
+    return Promise.resolve(error);
+  }
+};

@@ -1,5 +1,4 @@
 import Detail from "../../components/detail/Detail";
-import DetailTab from "../../components/detail/DetailTap";
 import styled from "styled-components";
 import DetailTab2 from "../../components/detail/DetailTap2";
 
