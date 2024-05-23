@@ -10,7 +10,7 @@ const LoginLoadingPage = () => {
     const accessToken = searchParams.get("accessToken");
 
     if (accessToken) {
-      localStorage.setItem("token", `Bearer ${accessToken}`);
+      localStorage.setItem("paladintoken", `Bearer ${accessToken}`);
       navigate("/");
       window.location.reload();
     } else {
