@@ -3,31 +3,53 @@ import styled from "styled-components";
 import Header from "../components/common/Header";
 import Footer from "../components/common/Footer";
 import Banner from "../components/MarketMain/Banner";
+import StoreNavigation from "../components/MarketMain/StoreNavigation";
 
 const MarketMainPage = () => {
   return (
-    <>
+    <Wrapper>
       <Header />
-      <Container>
-        <main>
-          <Banner />
-        </main>
-        <aside>aside</aside>
-      </Container>
+      <main>
+        <Banner />
+        <StoreNavigation />
+      </main>
+      <aside>aside</aside>
       <Footer />
-    </>
+    </Wrapper>
   );
 };
 
-const Container = styled.div`
-  width: 100%;
-  padding: 40px 0;
+const Wrapper = styled.div`
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "main aside"
+    "footer footer";
+  grid-gap: 40px 24px;
 
-  display: flex;
-  flex-direction: row nowrap;
-  align-items: start;
-  justify-content: center;
-  gap: 24px;
+  header {
+    grid-area: header;
+  }
+
+  main {
+    grid-area: main;
+    width: 690px;
+    margin-left: auto;
+
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 40px;
+  }
+
+  aside {
+    grid-area: aside;
+    width: 282px;
+    margin-right: auto;
+  }
+
+  div:last-child {
+    grid-area: footer;
+  }
 `;
 
 export default MarketMainPage;
