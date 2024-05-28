@@ -4,6 +4,7 @@ import Header from "../components/common/Header";
 import Footer from "../components/common/Footer";
 import Banner from "../components/MarketMain/Banner";
 import StoreNavigation from "../components/MarketMain/StoreNavigation";
+import Lookup from "../components/MarketMain/Lookup";
 
 const MarketMainPage = () => {
   return (
@@ -12,6 +13,7 @@ const MarketMainPage = () => {
       <main>
         <Banner />
         <StoreNavigation />
+        <Lookup />
       </main>
       <aside>aside</aside>
       <Footer />
