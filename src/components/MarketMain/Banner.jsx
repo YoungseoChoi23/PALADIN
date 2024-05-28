@@ -32,10 +32,13 @@ const Banner = () => {
 
 const Wrapper = styled.section`
   display: flex;
-  flex-direction: row nowrap;
+  flex-flow: row nowrap;
   align-items: center;
-  justify-content: center;
   gap: 11px;
+
+  img {
+    width: 588px;
+  }
 
   button {
     border: none;
