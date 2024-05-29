@@ -50,9 +50,6 @@ const Ul = styled.ul`
   }
 
   li a {
-    text-decoration: none;
-    color: #000;
-
     display: block;
     height: 100%;
     padding: 0 12px;
