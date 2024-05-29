@@ -6,8 +6,6 @@ const ButtonBlue = props => {
 };
 
 export const Button = styled.button`
-  outline: none;
-
   padding: 8px;
   border: 1px solid #3962ad;
   border-radius: 4px;

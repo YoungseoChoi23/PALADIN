@@ -39,13 +39,6 @@ const Wrapper = styled.section`
   img {
     width: 588px;
   }
-
-  button {
-    border: none;
-    outline: none;
-    background: none;
-    padding: 0;
-  }
 `;
 
 export default Banner;

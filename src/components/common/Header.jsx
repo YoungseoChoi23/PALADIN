@@ -50,17 +50,11 @@ const SearchBar = styled.form`
   input[type="text"] {
     flex: 1;
     height: 100%;
-
-    border: none;
-    outline: none;
   }
 
   input[type="submit"] {
     width: 80px;
     height: 40px;
-
-    border: none;
-    outline: none;
     background-color: #33afe9;
 
     color: white;

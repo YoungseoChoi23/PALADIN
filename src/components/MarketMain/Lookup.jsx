@@ -74,7 +74,6 @@ const Lookup = () => {
 };
 
 const Wrapper = styled.section`
-  width: 100%;
   height: fit-content;
   padding: 24px 40px;
   background: #e9e9e9;
@@ -187,10 +186,6 @@ const Form = styled.form`
   }
 
   #textForm input[type="submit"] {
-    border: none;
-    outline: none;
-    background: none;
-
     height: 100%;
     padding: 4px 16px;
     border-radius: 2px;
