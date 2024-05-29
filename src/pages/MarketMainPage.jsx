@@ -5,6 +5,7 @@ import Footer from "../components/common/Footer";
 import Banner from "../components/MarketMain/Banner";
 import StoreNavigation from "../components/MarketMain/StoreNavigation";
 import Lookup from "../components/MarketMain/Lookup";
+import Qna from "../components/MarketMain/Qna";
 
 const MarketMainPage = () => {
   return (
@@ -14,6 +15,7 @@ const MarketMainPage = () => {
         <Banner />
         <StoreNavigation />
         <Lookup />
+        <Qna />
       </main>
       <aside>aside</aside>
       <Footer />
