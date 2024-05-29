@@ -17,7 +17,20 @@ const MarketMainPage = () => {
         <Lookup />
         <Qna />
       </main>
-      <aside>aside</aside>
+      <aside>
+        <img
+          src={require("../assets/MarketMain/sub-banner-01.png")}
+          alt="2만원 이상 구매 시, 택배비 무료"
+        />
+        <img
+          src={require("../assets/MarketMain/sub-banner-02.png")}
+          alt="원클릭 팔기"
+        />
+        <img
+          src={require("../assets/MarketMain/sub-banner-03.png")}
+          alt="알라딘 중고박스"
+        />
+      </aside>
       <Footer />
     </Wrapper>
   );
@@ -49,6 +62,10 @@ const Wrapper = styled.div`
     grid-area: aside;
     width: 282px;
     margin-right: auto;
+  }
+
+  aside > img {
+    width: 100%;
   }
 
   div:last-child {
