@@ -1,14 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { ProductDetail, Productlist } from "../../services/api/example";
 import RecordDetailItem from "./RecordDetailItem";
 import styled from "styled-components";
 import Review from "./Review";
+import { useParams } from "react-router-dom";
 
-const DetailTab = ({ isRecord }) => {
+const DetailTab = ({ isRecord, img }) => {
+  const [data, setData] = useState([]);
+  const [content, setContent] = useState([]);
+
   const [tab, setTab] = useState("left");
   const [filter, setFilter] = useState("상품명순");
+  const { productId } = useParams();
+
+  const getBookDetailData = async productId => {
+    if (productId) {
+      const res = await ProductDetail({ productId });
+      setData(res.data);
+    }
+  };
+
+  useEffect(() => {
+    getBookListData(productId);
+  }, [productId]);
+
+  const getBookListData = async productId => {
+    if (productId) {
+      const res = await Productlist({ productId });
+      setContent(res.data.items);
+    }
+  };
+
+  useEffect(() => {
+    getBookDetailData(productId);
+  }, [productId]);
+
   const filterChange = filterName => {
     setFilter(filterName === filter ? filter : filterName);
   };
+
   return (
     <DetailTabBox>
       <div className="detail-tab">
@@ -88,37 +118,31 @@ const DetailTab = ({ isRecord }) => {
             <ItemWrapper>
               {isRecord ? (
                 <>
-                  <RecordDetailItem
-                    title="음반 제목"
-                    source="가수/발매사"
-                    type="음반"
-                    price="7000원"
-                    state="상"
-                  />
-                  <RecordDetailItem
-                    title="음반 제목"
-                    source="가수/발매사"
-                    type="음반"
-                    price="7000원"
-                    state="상"
-                  />
+                  {content.map(book => (
+                    <RecordDetailItem
+                      title={data.productName}
+                      source={data.info}
+                      type="음반"
+                      price={book.price}
+                      location={book.location}
+                      state={book.status}
+                      img={img}
+                    />
+                  ))}
                 </>
               ) : (
                 <>
-                  <RecordDetailItem
-                    title="[중고] 도서 제목"
-                    source="출판사/지은이"
-                    type="도서"
-                    price="7000원"
-                    state="상"
-                  />
-                  <RecordDetailItem
-                    title="[중고] 도서 제목"
-                    source="출판사/지은이"
-                    type="도서"
-                    price="7000원"
-                    state="상"
-                  />
+                  {content.map(book => (
+                    <RecordDetailItem
+                      title={data.productName}
+                      source={data.info}
+                      type="도서"
+                      price={book.price}
+                      location={book.location}
+                      state={book.status}
+                      img={img}
+                    />
+                  ))}
                 </>
               )}
             </ItemWrapper>

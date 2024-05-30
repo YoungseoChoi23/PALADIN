@@ -1,10 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import SecondHandItem from "./SecondHandItem";
-import book1 from "../../assets/S_main/book1.svg";
-import book2 from "../../assets/S_main/book2.svg";
-import book3 from "../../assets/S_main/book3.svg";
-import book4 from "../../assets/S_main/book4.svg";
 import { getProduct } from "../../services/api/example";
 
 const SecondHandBook = () => {
@@ -12,7 +8,7 @@ const SecondHandBook = () => {
 
   useEffect(() => {
     getProduct()
-      .then(res => console.log(res))
+      .then(res => setData(res.data.productTypes[0].products))
       .catch(error => {
         if (error.code === "ERR_NETWORK") {
           console.error(
@@ -23,17 +19,31 @@ const SecondHandBook = () => {
         }
       });
   }, []);
+
   return (
     <SecondHandBookList>
       <div className="secondHand-text">중고도서</div>
       <div className="secondHand-items">
-        {data.map(book => (
-          <SecondHandItem
-            book={book.items.imgPath}
-            name={book.productName}
-            price={book.items.price}
-          />
-        ))}
+        {data.map(book => {
+          const lowestPriceItem = book.items.reduce((minItem, currentItem) => {
+            return currentItem.price < minItem.price ? currentItem : minItem;
+          });
+          const discount =
+            ((book.originalPrice - lowestPriceItem.price) /
+              book.originalPrice) *
+            100;
+          return (
+            <SecondHandItem
+              key={book.productId}
+              type="도서"
+              book={book.items[0].imgPath}
+              name={book.productName}
+              price={lowestPriceItem.price}
+              discount={discount.toFixed(0)}
+              productId={book.productId}
+            />
+          );
+        })}
       </div>
     </SecondHandBookList>
   );

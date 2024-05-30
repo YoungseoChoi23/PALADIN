@@ -1,12 +1,19 @@
-import Detail from "./Detail";
 import styled from "styled-components";
 
-const RecordDetailItem = ({ title, source, type, price, state }) => {
+const RecordDetailItem = ({
+  title,
+  source,
+  type,
+  price,
+  state,
+  location,
+  img,
+}) => {
   return (
     <>
       <DetailItem>
         <div className="record-detail-item">
-          <div className={`${type}-item-img`}></div>
+          <img className={`${type}-item-img`} src={img}></img>
           <div className="text-btns">
             <div className="record-item-texts">
               <div className="record-item-text">
@@ -14,7 +21,7 @@ const RecordDetailItem = ({ title, source, type, price, state }) => {
                 <div className="source">{source}</div>
                 {type === "음반" ? (
                   <div className="location">
-                    {type} 위치: <p>A17</p> (위에서부터 4번째칸)
+                    {type} 위치: <p>{location}</p>
                   </div>
                 ) : (
                   <></>
@@ -29,7 +36,7 @@ const RecordDetailItem = ({ title, source, type, price, state }) => {
               <div className="detail-text2">
                 {type === "도서" ? (
                   <div className="location">
-                    {type} 위치: <p>A17</p> (위에서부터 4번째칸)
+                    {type} 위치: <p>{location}</p> (위에서부터 4번째칸)
                   </div>
                 ) : (
                   <></>
@@ -50,7 +57,6 @@ export default RecordDetailItem;
 
 const DetailItem = styled.div`
   .record-detail-item {
-    width: 670px;
     height: 240px;
     flex-shrink: 0;
     display: flex;
@@ -93,16 +99,12 @@ const DetailItem = styled.div`
   }
   .title-도서 {
     color: #000;
-    text-align: center;
     font-family: Pretendard;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     display: flex;
-    justify-content: start;
-    display: flex;
-    width: 134px;
     height: 31px;
     flex-direction: column;
     justify-content: center;
@@ -110,7 +112,7 @@ const DetailItem = styled.div`
   }
   .title-음반 {
     color: #000;
-    text-align: center;
+
     font-family: Pretendard;
     font-size: 20px;
     font-style: normal;
@@ -118,8 +120,7 @@ const DetailItem = styled.div`
     line-height: normal;
     display: flex;
     justify-content: start;
-    display: flex;
-    width: 75px;
+
     height: 31px;
     flex-direction: column;
     justify-content: center;

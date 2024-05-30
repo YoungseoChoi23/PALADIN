@@ -1,22 +1,60 @@
 import Detail from "../../components/detail/Detail";
 import styled from "styled-components";
-import DetailTab2 from "../../components/detail/DetailTap2";
+import DetailTab from "../../components/detail/DetailTap";
+import { useState, useEffect } from "react";
+import { ProductDetail, getProduct } from "../../services/api/example";
+import { useParams } from "react-router-dom";
 
 const RecordDetailPage = () => {
+  const { productId } = useParams();
+  const [data, setData] = useState([]);
+  const [img, setImg] = useState("");
+
+  const getRecordImgData = async productId => {
+    if (productId) {
+      const res = await getProduct();
+      console.log(res);
+      setImg(res.data.productTypes[1].products[productId - 7].items[0].imgPath);
+    }
+  };
+  useEffect(() => {
+    getRecordImgData(productId);
+  }, [productId]);
+
+  const getRecordDetailData = async productId => {
+    if (productId) {
+      const res = await ProductDetail({ productId });
+      console.log(res);
+      setData(res);
+    }
+  };
+
+  useEffect(() => {
+    getRecordDetailData(productId);
+  }, [productId]);
+
+  const lowestPriceItem = data.data
+    ? data.data.items.items.reduce((minItem, currentItem) => {
+        return currentItem.price < minItem.price ? currentItem : minItem;
+      })
+    : { price: 0 };
+
   return (
     <>
       <DetailStyle>
         <DetailWrapper>
           <Detail
-            title_text="음반 제목"
+            title_text={data.data && data.data.productName}
             title_more=""
-            source="가수/발매사"
-            stock="n부"
-            lowest_price="7000원"
-            regular_price="13500원"
+            source={data.data && data.data.info}
+            stock={data.data && data.data.stockQuantity}
+            lowest_price={lowestPriceItem.price}
+            regular_price={data.data && data.data.originalPrice}
             type="음반"
+            location={data.data && lowestPriceItem.location}
+            img={img}
           />
-          <DetailTab2 isRecord={true} />
+          <DetailTab isRecord={true} img={img} />
         </DetailWrapper>
       </DetailStyle>
     </>

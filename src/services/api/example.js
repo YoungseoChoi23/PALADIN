@@ -16,7 +16,7 @@ export const postExample = async (title, content) => {
 //get 요청 예시
 export const getExample = async () => {
   try {
-    const response = await client.post(`/요청 주소`);
+    const response = await client.get(`/요청 주소`);
     return Promise.resolve(response);
   } catch (error) {
     return Promise.resolve(error);
@@ -32,9 +32,45 @@ export const getProduct = async () => {
   }
 };
 
-export const Procductdetail = async ({ productId }) => {
+export const ProductDetail = async ({ productId }) => {
   try {
     const response = await client.get(`/api/products/${productId}`);
+    return Promise.resolve(response);
+  } catch (error) {
+    return Promise.resolve(error);
+  }
+};
+
+export const Productlist = async ({ productId }) => {
+  try {
+    const response = await client.get(`/api/products/${productId}/items`);
+    return Promise.resolve(response);
+  } catch (error) {
+    return Promise.resolve(error);
+  }
+};
+
+export const CreateReview = async ({ productId, reviewData, accessToken }) => {
+  try {
+    const response = await client.post(
+      `/api/products/${productId}/reviews`,
+      reviewData,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      },
+    );
+    return Promise.resolve(response);
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+
+export const GetReview = async ({ productId }) => {
+  try {
+    const response = await client.get(`/api/products/${productId}/reviews`);
     return Promise.resolve(response);
   } catch (error) {
     return Promise.resolve(error);

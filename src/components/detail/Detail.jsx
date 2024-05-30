@@ -1,6 +1,5 @@
 import cross_section_part from "../../assets/detail/cross_section_part.svg";
 import styled from "styled-components";
-
 const Detail = ({
   img,
   title_text,
@@ -9,13 +8,14 @@ const Detail = ({
   stock,
   lowest_price,
   regular_price,
+  location,
   type,
 }) => {
   return (
     <DetailBox>
       <div className="detail-top">
         <div className="detail-top-left">
-          <div className={`detail-img-${type}`}>{img}</div>
+          <img className={`detail-img-${type}`} src={img} />
           <div className="detail-text1">
             <div className="title">
               <div className="title-text">{title_text}</div>
@@ -27,10 +27,10 @@ const Detail = ({
                 <div className="stock-location">
                   <div className="stock">
                     <p className="stock-text"></p>재고:
-                    <p className="stock-value">{stock}</p>{" "}
+                    <p className="stock-value">{stock}부</p>
                   </div>
                   <div className="location">
-                    {type} 위치: <p>A17</p> (위에서부터 4번째칸)
+                    {type} 위치: <p>{location}</p>
                   </div>
                 </div>
               </>
@@ -38,17 +38,17 @@ const Detail = ({
               <>
                 <div className="stock">
                   <p className="stock-text"></p>재고:
-                  <p className="stock-value">{stock}</p>{" "}
+                  <p className="stock-value">{stock}부</p>
                 </div>
               </>
             )}
             <div className="lowest-price">
               <p className="lowest-price-text"> 최저가: </p>
-              <p className="lowest-price-value">{lowest_price}</p>
+              <p className="lowest-price-value">{lowest_price}원</p>
             </div>
             {type === "도서" ? (
               <>
-                <div className="regular-price">정가: {regular_price}</div>
+                <div className="regular-price">정가: {regular_price}원</div>
               </>
             ) : (
               <></>
@@ -66,9 +66,9 @@ const Detail = ({
             {type === "음반" ? (
               <>
                 <div className="location">
-                  {type} 위치: <p>A17</p> (위에서부터 4번째칸)
+                  {type} 위치: <p>{location}</p>
                 </div>
-                <div className="regular-price">정가: {regular_price}</div>
+                <div className="regular-price">정가: {regular_price}원</div>
               </>
             ) : (
               <></>

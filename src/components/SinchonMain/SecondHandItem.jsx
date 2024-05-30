@@ -3,17 +3,29 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import arrowRight from "../../assets/S_main/arrow_right.svg";
 
-const SecondHandItem = ({ book, name, price, discount }) => {
+const SecondHandItem = ({ type, book, name, price, discount, productId }) => {
+  const navigate = useNavigate();
+
+  const ProductDetail = () => {
+    if (type == "도서") navigate(`/sinchonMain/bookDetail/${productId}`);
+    else {
+      navigate(`/sinchonMain/recordDetail/${productId}`);
+    }
+  };
   return (
     <Item>
       <div className="secondHandItem">
         <div>
-          <img src={book}></img>
+          <img
+            className={`category-${type}-img`}
+            onClick={ProductDetail}
+            src={book}
+          ></img>
         </div>
         <div className="name">{name}</div>
         <div className="price-discount">
-          <div className="price">{price}</div>
-          <div className="discount">{discount}</div>
+          <div className="price">{price}원</div>
+          <div className="discount">{discount}% 할인</div>
         </div>
       </div>
     </Item>
@@ -34,6 +46,8 @@ const Item = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    display: flex;
+    justify-content: center;
   }
   .price-discount {
     display: flex;
@@ -55,5 +69,15 @@ const Item = styled.div`
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+  }
+  .category-도서-img {
+    width: 150px;
+    height: 222px;
+    cursor: pointer;
+  }
+  .category-음반-img {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
   }
 `;

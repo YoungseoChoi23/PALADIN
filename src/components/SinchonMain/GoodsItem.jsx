@@ -3,12 +3,17 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import arrowRight from "../../assets/S_main/arrow_right.svg";
 
-const GoodsItem = ({ book, name, price, discount }) => {
+const GoodsItem = ({ book, name, price, productId }) => {
+  const navigate = useNavigate();
+
+  const ProductDetail = () => {
+    navigate(`/sinchonMain/goodsDetail/${productId}`);
+  };
   return (
     <Item>
       <div className="goodsItem">
         <div>
-          <img src={book}></img>
+          <img className="product-img" onClick={ProductDetail} src={book}></img>
         </div>
         <div className="name">{name}</div>
         <div className="price-discount">
@@ -55,5 +60,10 @@ const Item = styled.div`
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+  }
+  .product-img {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
   }
 `;

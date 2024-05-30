@@ -13,9 +13,18 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/login/loading" element={<LoginLoadingPage />} />
       <Route path="/sinchonMain" element={<SinchonMainPage />} />
-      <Route path="/sinchonMain/recordDetail" element={<RecordDetailPage />} />
-      <Route path="/sinchonMain/bookDetail" element={<BookDetailPage />} />
-      <Route path="/sinchonMain/goodsDetail" element={<GoodsDetailPage />} />
+      <Route
+        path="/sinchonMain/recordDetail/:productId"
+        element={<RecordDetailPage />}
+      />
+      <Route
+        path="/sinchonMain/bookDetail/:productId"
+        element={<BookDetailPage />}
+      />
+      <Route
+        path="/sinchonMain/goodsDetail/:productId"
+        element={<GoodsDetailPage />}
+      />
     </Routes>
   );
 }

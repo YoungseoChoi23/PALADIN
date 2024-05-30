@@ -1,19 +1,84 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
-import arrowRight from "../../assets/S_main/arrow_right.svg";
 import GoodsItem from "./GoodsItem";
-import goods1 from "../../assets/S_main/goods1.png";
-import goods2 from "../../assets/S_main/goods2.png";
-import goods3 from "../../assets/S_main/goods3.png";
-import goods4 from "../../assets/S_main/goods4.png";
+
+import { getProduct } from "../../services/api/example";
 
 const Goods = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    getProduct()
+      .then(res => setData(res.data.productTypes[2].products))
+      .catch(error => {
+        if (error.code === "ERR_NETWORK") {
+          console.error(
+            "Network error: Please check your internet connection or the server status.",
+          );
+        } else {
+          console.error("Error:", error.message);
+        }
+      });
+  }, []);
+
+  useEffect(() => {
+    getProduct()
+      .then(res => setData(res.data.productTypes[2].products))
+      .catch(error => {
+        if (error.code === "ERR_NETWORK") {
+          console.error(
+            "Network error: Please check your internet connection or the server status.",
+          );
+        } else {
+          console.error("Error:", error.message);
+        }
+      });
+  }, []);
   return (
     <GoodsList>
       <div className="goods-text">알라딘 굿즈</div>
       <div className="goods-items">
-        <GoodsItem
+        {data.map(goods => {
+          const lowestPriceItem = goods.items.reduce((minItem, currentItem) => {
+            return currentItem.price < minItem.price ? currentItem : minItem;
+          });
+          const discount =
+            ((goods.originalPrice - lowestPriceItem.price) /
+              goods.originalPrice) *
+            100;
+          return (
+            <GoodsItem
+              book={goods.items[0].imgPath}
+              name={goods.productName}
+              price={lowestPriceItem.price}
+              discount={discount.toFixed(0)}
+              productId={goods.productId}
+            />
+          );
+        })}
+      </div>
+    </GoodsList>
+  );
+};
+export default Goods;
+
+const GoodsList = styled.div`
+  .goods-text {
+    color: #000;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 64px;
+    margin-bottom: 39px;
+  }
+  .goods-items {
+    display: flex;
+    gap: 30px;
+  }
+`;
+/* <GoodsItem
           book={goods1}
           name="피너츠 보냉파우치 & 토
           트백"
@@ -39,26 +104,4 @@ const Goods = () => {
           name="빤쮸토끼 키링"
           price="10,000원"
           discount=""
-        />
-      </div>
-    </GoodsList>
-  );
-};
-export default Goods;
-
-const GoodsList = styled.div`
-  .goods-text {
-    color: #000;
-    font-family: Pretendard;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    margin-top: 64px;
-    margin-bottom: 39px;
-  }
-  .goods-items {
-    display: flex;
-    gap: 30px;
-  }
-`;
+        />*/

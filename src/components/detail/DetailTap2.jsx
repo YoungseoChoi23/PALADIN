@@ -1,5 +1,4 @@
 import { useState } from "react";
-import RecordDetailItem from "./RecordDetailItem";
 import styled from "styled-components";
 import goods from "../../assets/detail/goods_desc.svg";
 

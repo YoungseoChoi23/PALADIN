@@ -3,14 +3,59 @@ import stars from "../../assets/detail/stars.svg";
 import small_stars from "../../assets/detail/small_stars.svg";
 import add_photo from "../../assets/detail/add_photo.svg";
 import ReviewItem from "./ReviewItem";
-import sample_img from "../../assets/detail/sample_img.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { CreateReview, GetReview } from "../../services/api/example";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Review = () => {
   const [sort, setSort] = useState("최근순");
+  const { productId } = useParams();
+  const [reviewText, setReviewText] = useState("");
+  const [data, setData] = useState([]);
+  const navigate = useNavigate();
   const handleSort = sortName => {
     setSort(sortName === sort ? sort : sortName);
   };
+
+  const handleReviewTextChange = event => {
+    setReviewText(event.target.value);
+  };
+  const isLogin = !!localStorage.getItem("paladintoken");
+
+  const submitReview = async () => {
+    if (!isLogin) {
+      alert("로그인 후 이용가능합니다!");
+      navigate("/login");
+    } else {
+      const reviewData = {
+        content: reviewText,
+        rating: 5,
+        memberId: 1,
+      };
+      try {
+        const response = await CreateReview({ productId, reviewData });
+        console.log("Review submitted successfully:", response);
+        setReviewText("");
+      } catch (error) {
+        console.error("Error submitting review:", error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    GetReview({ productId })
+      .then(res => setData(res.data))
+      .catch(error => {
+        if (error.code === "ERR_NETWORK") {
+          console.error(
+            "Network error: Please check your internet connection or the server status.",
+          );
+        } else {
+          console.error("Error:", error.message);
+        }
+      });
+  }, []);
+
   return (
     <>
       <ReviewWrapper>
@@ -33,9 +78,13 @@ const Review = () => {
             <input
               type="text"
               placeholder="해당 상품을 구매하셨나요? 감상평을 남겨주세요."
+              onChange={handleReviewTextChange}
+              value={reviewText}
             />
           </div>
-          <button className="review-input-btn">작성하기</button>
+          <button className="review-input-btn" onClick={submitReview}>
+            작성하기
+          </button>
         </div>
 
         <div className="add-photo">
@@ -70,15 +119,15 @@ const Review = () => {
             별점순
           </p>
         </div>
-        <ReviewItems>
-          <ReviewItem date="2024.04.05" content="좋은 책이었다." img="" />
-          <ReviewItem date="2024.04.05" content="좋은 책이었다." img="" />
-          <ReviewItem
-            date="2024.04.05"
-            content="좋은 책이었다."
-            img={sample_img}
-          />
-        </ReviewItems>
+        {data.map(review => {
+          return (
+            <ReviewItem
+              date={review.createdDate}
+              content={review.content}
+              img={review.imgPaths}
+            />
+          );
+        })}
       </ReviewWrapper>
     </>
   );
@@ -192,6 +241,7 @@ const ReviewWrapper = styled.div`
     border: none;
     margin: auto;
     margin-top: 56px;
+    cursor: pointer;
   }
   .add-photo {
     margin-top: 18px;
