@@ -1,0 +1,57 @@
+const dummy = [
+  {
+    type: "book",
+    title: "도서 제목",
+    publisher: "출판사",
+    writer: "지은이",
+    price: 7000,
+    location: "A17",
+    condition: "상",
+  },
+  {
+    type: "book",
+    title: "도서 제목",
+    publisher: "출판사",
+    writer: "지은이",
+    price: 7000,
+    location: "A17",
+    condition: "상",
+  },
+  {
+    type: "music",
+    title: "음반 제목",
+    publisher: "출판사",
+    writer: "지은이",
+    price: 7000,
+    location: "A17",
+    condition: "상",
+  },
+  {
+    type: "book",
+    title: "도서 제목",
+    publisher: "출판사",
+    writer: "지은이",
+    price: 7000,
+    location: "A17",
+    condition: "상",
+  },
+  {
+    type: "music",
+    title: "음반 제목",
+    publisher: "출판사",
+    writer: "지은이",
+    price: 7000,
+    location: "A17",
+    condition: "상",
+  },
+  {
+    type: "goods",
+    title: "상품명",
+    publisher: "출판사",
+    writer: "지은이",
+    price: 7000,
+    location: "A17",
+  },
+];
+
+export default dummy;
