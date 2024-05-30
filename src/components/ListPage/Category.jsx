@@ -38,6 +38,7 @@ const Wrapper = styled.div`
     color: var(--black);
     font-size: 16px;
     font-weight: 400;
+    white-space: nowrap;
   }
 `;
 const Major = styled.div`
@@ -67,12 +68,11 @@ const Major = styled.div`
   }
 `;
 const Minor = styled.div`
-  width: 326px;
-  height: 127px;
+  padding: 30px;
 
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  text-align: center;
+  gap: 30px;
 
   background-color: var(--grey1);
 
