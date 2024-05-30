@@ -17,28 +17,28 @@ const Lookup = () => {
             name="productType"
             value="국내도서"
           />
-          <label for="productType1">국내도서</label>
+          <label htmlFor="productType1">국내도서</label>
           <input
             type="radio"
             id="productType2"
             name="productType"
             value="외국도서"
           />
-          <label for="productType2">외국도서</label>
+          <label htmlFor="productType2">외국도서</label>
           <input
             type="radio"
             id="productType3"
             name="productType"
             value="음반"
           />
-          <label for="productType3">음반</label>
+          <label htmlFor="productType3">음반</label>
           <input
             type="radio"
             id="productType4"
             name="productType"
             value="DVD/블루레이"
           />
-          <label for="productType4">블루레이</label>
+          <label htmlFor="productType4">블루레이</label>
         </fieldset>
         <b>상품명 또는 ISBN</b>
         <div id="textForm">
@@ -85,7 +85,7 @@ const Wrapper = styled.section`
     "explanation explanation";
   row-gap: 20px;
 
-  p {
+  div:first {
     grid-area: title;
   }
 
@@ -103,7 +103,7 @@ const Wrapper = styled.section`
   }
 `;
 
-const Title = styled.p`
+const Title = styled.div`
   h1 {
     font-size: 16px;
     font-weight: 700;

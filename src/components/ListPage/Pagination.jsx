@@ -17,7 +17,7 @@ const Pagination = () => {
                   name="pagination"
                   value={number}
                 />
-                <label for={number}>{number}</label>
+                <label htmlFor={number}>{number}</label>
               </>
             );
           })}

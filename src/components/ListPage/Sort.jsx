@@ -7,9 +7,9 @@ const Sort = () => {
       <Sum>총 {Intl.NumberFormat().format()}건의 결과</Sum>
       <Fieldset>
         <input type="radio" id="sort1" name="sort" value="상품명순" />
-        <label for="sort1">상품명순</label>
+        <label htmlFor="sort1">상품명순</label>
         <input type="radio" id="sort2" name="sort" value="출시일순" />
-        <label for="sort2">출시일순</label>
+        <label htmlFor="sort2">출시일순</label>
         <input
           type="radio"
           id="sort3"
@@ -17,13 +17,13 @@ const Sort = () => {
           value="등록순순"
           defaultChecked
         />
-        <label for="sort3">등록순</label>
+        <label htmlFor="sort3">등록순</label>
         <input type="radio" id="sort4" name="sort" value="저가격순" />
-        <label for="sort4">저가격순</label>
+        <label htmlFor="sort4">저가격순</label>
         <input type="radio" id="sort5" name="sort" value="고가격순" />
-        <label for="sort5">고가격순</label>
+        <label htmlFor="sort5">고가격순</label>
         <input type="radio" id="sort6" name="sort" value="베스트순" />
-        <label for="sort6">베스트순</label>
+        <label htmlFor="sort6">베스트순</label>
       </Fieldset>
     </section>
   );

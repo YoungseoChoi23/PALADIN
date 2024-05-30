@@ -20,7 +20,7 @@ const CartPage = () => {
         <ul>
           {dummy.map(item => {
             return (
-              <li>
+              <li key={`${Date.now()}-${Math.random()}`}>
                 <Item data={item} />
               </li>
             );

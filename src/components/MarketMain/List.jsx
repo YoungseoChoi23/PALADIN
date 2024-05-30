@@ -10,7 +10,7 @@ const List = ({ title, list }) => {
         {list &&
           list.map(item => {
             return (
-              <li>
+              <li key={`${Date.now()}-${Math.random()}`}>
                 <Link to="#">{item}</Link>
               </li>
             );

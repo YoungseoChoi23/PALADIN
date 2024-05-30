@@ -7,10 +7,10 @@ const StoreNavigation = () => {
   return (
     <section>
       <Top>
-        <p>
+        <div>
           <h2>중고매장</h2>
           <small>해당 지점명을 선택하면 보유도서를 검색할 수 있습니다.</small>
-        </p>
+        </div>
         <MarketBtn>카카오맵에서 전국매장 조회하기</MarketBtn>
       </Top>
       <List title="서울" list={seoul} />
@@ -27,18 +27,18 @@ const Top = styled.div`
   justify-content: space-between;
   margin-bottom: 16px;
 
-  p {
+  div {
     display: flex;
     flex-flow: column nowrap;
     gap: 8px;
   }
 
-  p > h2 {
+  div > h2 {
     font-size: 20px;
     font-weight: 700;
   }
 
-  p > small {
+  div > small {
     font-size: 12px;
     font-weight: 400;
     color: var(--grey2);

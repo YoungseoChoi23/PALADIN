@@ -17,7 +17,7 @@ const SalesUpdate = () => {
           defaultChecked
           onChange={() => setContents(all)}
         />
-        <label for="radioButtonAll">전체</label>
+        <label htmlFor="radioButtonAll">전체</label>
         <input
           id="radioButtonKor"
           type="radio"
@@ -25,7 +25,7 @@ const SalesUpdate = () => {
           value="국내도서"
           onChange={() => setContents(kor)}
         />
-        <label for="radioButtonKor">국내도서</label>
+        <label htmlFor="radioButtonKor">국내도서</label>
         <input
           id="radioButtonMusic"
           type="radio"
@@ -33,7 +33,7 @@ const SalesUpdate = () => {
           value="음반"
           onChange={() => setContents(music)}
         />
-        <label for="radioButtonMusic">음반</label>
+        <label htmlFor="radioButtonMusic">음반</label>
         <input
           id="radioButtonDvd"
           type="radio"
@@ -41,7 +41,7 @@ const SalesUpdate = () => {
           value="DVD"
           onChange={() => setContents(dvd)}
         />
-        <label for="radioButtonDvd">DVD</label>
+        <label htmlFor="radioButtonDvd">DVD</label>
       </RadioGroup>
       <Article>
         <div>
