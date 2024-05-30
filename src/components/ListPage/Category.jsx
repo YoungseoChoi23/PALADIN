@@ -21,7 +21,7 @@ const Category = ({ data }) => {
       <Minor className={showSubclass ? "show" : "hidden"}>
         {data.subclass.map(item => {
           return (
-            <span className="subclass">
+            <span className="subclass" key={`${Date.now()}-${Math.random()}`}>
               {item.name} <small>({item.number})</small>
             </span>
           );
