@@ -16,7 +16,7 @@ const Qna = () => {
           defaultChecked
           onChange={() => setContents(buy)}
         />
-        <label for="radioButton1">이렇게 삽니다.</label>
+        <label htmlFor="radioButton1">이렇게 삽니다.</label>
         <input
           type="radio"
           id="radioButton2"
@@ -24,7 +24,7 @@ const Qna = () => {
           value="이렇게 팝니다."
           onChange={() => setContents(sell)}
         />
-        <label for="radioButton2">이렇게 팝니다.</label>
+        <label htmlFor="radioButton2">이렇게 팝니다.</label>
         <input
           type="radio"
           id="radioButton3"
@@ -32,21 +32,33 @@ const Qna = () => {
           value="중고매장 FAQ"
           onChange={() => setContents(faq)}
         />
-        <label for="radioButton3">중고매장 FAQ</label>
+        <label htmlFor="radioButton3">중고매장 FAQ</label>
       </RadioGroup>
       <Article>
         {contents &&
           contents.map(item => {
             return (
-              <ol>
-                <li>
+              <ol key={`${Date.now()}-${Math.random()}`}>
+                <li key={`${Date.now()}-${Math.random()}`}>
                   <b>{item.heading}</b>
                   <ul>
                     {item.text.map(sentence => {
-                      return <li className="sentence">{sentence}</li>;
+                      return (
+                        <li
+                          className="sentence"
+                          key={`${Date.now()}-${Math.random()}`}
+                        >
+                          {sentence}
+                        </li>
+                      );
                     })}
                     {item.emphasis && (
-                      <li className="sentence emphasis">{item.emphasis}</li>
+                      <li
+                        className="sentence emphasis"
+                        key={`${Date.now()}-${Math.random()}`}
+                      >
+                        {item.emphasis}
+                      </li>
                     )}
                   </ul>
                 </li>

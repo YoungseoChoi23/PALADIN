@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "../components/common/Header";
-import Footer from "../components/common/Footer";
-import Sidebar from "../components/ListPage/Sidebar";
-import Sort from "../components/ListPage/Sort";
-import Pagination from "../components/ListPage/Pagination";
-import List from "../components/ListPage/List";
-import { ListPage, ListItem } from "../components/ListPage/ListStyle";
-import dummy from "../components/ListPage/dummy";
+import Header from "../../components/common/Header";
+import Footer from "../../components/common/Footer";
+import Sidebar from "../../components/ListPage/Sidebar";
+import Sort from "../../components/ListPage/Sort";
+import Pagination from "../../components/ListPage/Pagination";
+import List from "../../components/ListPage/List";
+import { ListPage, ListItem } from "../../components/ListPage/ListStyle";
+import dummy from "../../components/ListPage/dummy";
 
 const MusicListPage = () => {
   return (

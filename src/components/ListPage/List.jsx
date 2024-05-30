@@ -7,7 +7,7 @@ const List = ({ data, type, style }) => {
     <Wrapper>
       {data.map(item => {
         return (
-          <li>
+          <li key={`${Date.now()}-${Math.random()}`}>
             <Item data={item} type={type} ListStyle={style} />
           </li>
         );

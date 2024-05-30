@@ -7,7 +7,7 @@ const Sidebar = ({ title, list }) => {
     <Aside>
       <b>{title}</b>
       {list.map(item => {
-        return <Category data={item} />;
+        return <Category data={item} key={`${Date.now()}-${Math.random()}`} />;
       })}
     </Aside>
   );

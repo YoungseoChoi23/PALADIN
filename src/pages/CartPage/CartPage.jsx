@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../components/common/Header";
-import Footer from "../components/common/Footer";
-import dummy from "../components/CartPage/dummy";
-import Item from "../components/CartPage/Item";
+import Header from "../../components/common/Header";
+import Footer from "../../components/common/Footer";
+import dummy from "../../components/CartPage/dummy";
+import Item from "../../components/CartPage/Item";
 
 const CartPage = () => {
   return (
@@ -20,7 +20,7 @@ const CartPage = () => {
         <ul>
           {dummy.map(item => {
             return (
-              <li>
+              <li key={`${Date.now()}-${Math.random()}`}>
                 <Item data={item} />
               </li>
             );

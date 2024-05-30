@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../components/common/Header";
-import Footer from "../components/common/Footer";
-import Banner from "../components/MarketMain/Banner";
-import StoreNavigation from "../components/MarketMain/StoreNavigation";
-import Lookup from "../components/MarketMain/Lookup";
-import Qna from "../components/MarketMain/Qna";
-import Info from "../components/MarketMain/Info";
-import SalesUpdate from "../components/MarketMain/SalesUpdate";
+import Header from "../../components/common/Header";
+import Footer from "../../components/common/Footer";
+import Banner from "../../components/MarketMain/Banner";
+import StoreNavigation from "../../components/MarketMain/StoreNavigation";
+import Lookup from "../../components/MarketMain/Lookup";
+import Qna from "../../components/MarketMain/Qna";
+import Info from "../../components/MarketMain/Info";
+import SalesUpdate from "../../components/MarketMain/SalesUpdate";
 
 const MarketMainPage = () => {
   return (
@@ -21,18 +21,18 @@ const MarketMainPage = () => {
       </main>
       <aside>
         <img
-          src={require("../assets/MarketMain/sub-banner-01.png")}
+          src={require("../../assets/MarketMain/sub-banner-01.png")}
           alt="2만원 이상 구매 시, 택배비 무료"
         />
         <Info heading="매장소식" content={marketInfo} />
         <Info heading="중고매장 FAQ" />
         <SalesUpdate />
         <img
-          src={require("../assets/MarketMain/sub-banner-02.png")}
+          src={require("../../assets/MarketMain/sub-banner-02.png")}
           alt="원클릭 팔기"
         />
         <img
-          src={require("../assets/MarketMain/sub-banner-03.png")}
+          src={require("../../assets/MarketMain/sub-banner-03.png")}
           alt="알라딘 중고박스"
         />
       </aside>

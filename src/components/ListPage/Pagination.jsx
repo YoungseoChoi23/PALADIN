@@ -8,19 +8,21 @@ const Pagination = () => {
       <div>
         <small>총 100페이지</small>
         <fieldset>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(number => {
-            return (
-              <>
-                <input
-                  type="radio"
-                  id={number}
-                  name="pagination"
-                  value={number}
-                />
-                <label for={number}>{number}</label>
-              </>
-            );
-          })}
+          <ul>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(number => {
+              return (
+                <li key={`${Date.now()}-${Math.random()}`}>
+                  <input
+                    type="radio"
+                    id={number}
+                    name="pagination"
+                    value={number}
+                  />
+                  <label htmlFor={number}>{number}</label>
+                </li>
+              );
+            })}
+          </ul>
         </fieldset>
         <small>100페이지 중 6페이지</small>
       </div>
@@ -49,15 +51,15 @@ const Wrapper = styled.section`
     font-weight: 400;
     text-align: end;
   }
-  div fieldset {
+  div fieldset ul {
     display: flex;
     flex-flow: row nowrap;
     gap: 8px;
   }
-  div fieldset input[type="radio"] {
+  div fieldset ul li input[type="radio"] {
     display: none;
   }
-  div fieldset label {
+  div fieldset ul li label {
     height: 18px;
     padding: 0 4px;
     background-color: var(--grey1);
@@ -67,7 +69,7 @@ const Wrapper = styled.section`
     text-align: center;
     align-content: center;
   }
-  div fieldset input[type="radio"]:checked + label {
+  div fieldset ul li input[type="radio"]:checked + label {
     background-color: var(--pink);
     color: white;
   }

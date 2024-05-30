@@ -12,7 +12,7 @@ const Info = ({ heading, content }) => {
       <ol>
         {content &&
           content.map(item => {
-            return <Post>{item}</Post>;
+            return <Post key={`${Date.now()}-${Math.random()}`}>{item}</Post>;
           })}
       </ol>
     </section>
