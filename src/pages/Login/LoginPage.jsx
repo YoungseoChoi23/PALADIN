@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import kakao_login from "../assets/login/kakao_login.svg";
+import kakao_login from "../../assets/login/kakao_login.svg";
 
 const LoginPage = () => {
   const [checked, setChecked] = useState(false);
+
+  const handlekakaoLogin = () => {
+    window.location.href = process.env.REACT_APP_KAKAO_AUTH_URL;
+  };
 
   return (
     <Wrapper>
@@ -34,7 +38,7 @@ const LoginPage = () => {
 
       <p className="kakao-title">카카오 계정으로 로그인하기</p>
 
-      <div className="kakao-btn">
+      <div className="kakao-btn" onClick={handlekakaoLogin}>
         <img src={kakao_login} alt="" />
       </div>
     </Wrapper>
