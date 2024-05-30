@@ -17,7 +17,7 @@ const Header = () => {
         </ul>
       </NavBar>
       <SearchBar>
-        <img src={market_logo} />
+        <img src={market_logo} alt="logo" />
         <form>
           <b>신촌점</b>
           <input name="input" type="text" />
