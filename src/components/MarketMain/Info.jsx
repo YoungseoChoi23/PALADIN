@@ -27,28 +27,28 @@ const Title = styled.div`
   height: 40px;
   padding: 0 16px;
   align-items: center;
-  background: #ea328f;
+  background: var(--pink);
 
   b {
-    color: #fff;
     font-size: 12px;
     font-weight: 700;
+    color: white;
   }
   a {
-    color: #fff;
     font-size: 12px;
     font-weight: 400;
+    color: white;
   }
 `;
 
 const Post = styled.li`
   padding: 16px;
   align-items: center;
-  border-bottom: 1px solid #e9e9e9;
+  border-bottom: 1px solid var(--grey1);
 
-  color: #ea328f;
   font-size: 12px;
   font-weight: 400;
+  color: var(--pink);
 `;
 
 export default Info;

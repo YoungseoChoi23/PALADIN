@@ -7,13 +7,13 @@ const ButtonBlue = props => {
 
 export const Button = styled.button`
   padding: 8px;
-  border: 1px solid #3962ad;
+  border: 1px solid var(--blue3);
   border-radius: 4px;
-  background-color: #e8edf6;
+  background-color: var(--blue1);
 
-  color: #3962ad;
   font-size: 12px;
   font-weight: 500;
+  color: var(--blue3);
 
   &:hover {
     background-color: #cee0ff;

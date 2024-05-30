@@ -1,6 +1,6 @@
 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g opacity="0.8">
-<rect width="40" height="40" rx="20" fill="#E9E9E9"/>
+<rect width="40" height="40" rx="20" fill="var(--grey1)"/>
 <rect x="8" y="8" width="24" height="24" fill="url(#pattern0_312_91)"/>
 </g>
 <defs>

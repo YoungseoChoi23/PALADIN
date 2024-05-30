@@ -77,20 +77,20 @@ const RadioGroup = styled.fieldset`
     width: 230px;
     padding: 8px 0;
 
-    text-align: center;
-    color: #3962ad;
     font-size: 12px;
     font-weight: 700;
+    color: var(--blue3);
+    text-align: center;
 
-    border-bottom: 1px solid #3962ad;
-    background: #e8edf6;
+    border-bottom: 1px solid var(--blue3);
+    background: var(--blue1);
   }
   input[type="radio"]:checked + label {
-    border-top: 1px solid #3962ad;
-    border-right: 1px solid #3962ad;
-    border-left: 1px solid #3962ad;
+    border-top: 1px solid var(--blue3);
+    border-right: 1px solid var(--blue3);
+    border-left: 1px solid var(--blue3);
     border-bottom: none;
-    background: #fff;
+    background: white;
   }
 `;
 
@@ -98,12 +98,13 @@ const Article = styled.article`
   padding: 16px 30px 40px 40px;
 
   b {
+    margin: 8px 0 4px 0;
     display: block;
     width: fit-content;
     height: fit-content;
+
     font-size: 12px;
     font-weight: 700;
-    margin: 8px 0 4px 0;
   }
   .sentence {
     font-size: 12px;
@@ -111,7 +112,7 @@ const Article = styled.article`
     list-style: inside "- ";
   }
   .emphasis {
-    color: #ea328f;
+    color: var(--pink);
   }
 `;
 

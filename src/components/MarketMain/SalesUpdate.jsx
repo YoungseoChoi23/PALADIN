@@ -61,17 +61,17 @@ const Wrapper = styled.section`
   padding: 16px 13px;
   text-align: center;
 
-  border-top: 1px solid #ea328f;
-  border-bottom: 1px solid #ea328f;
-  background: #fff;
+  border-top: 1px solid var(--pink);
+  border-bottom: 1px solid var(--pink);
+  background: white;
 
   #today {
-    color: #ea328f;
+    margin-bottom: 12px;
+    display: block;
+
     font-size: 14px;
     font-weight: 700;
-
-    display: block;
-    margin-bottom: 12px;
+    color: var(--pink);
   }
 `;
 
@@ -86,19 +86,19 @@ const RadioGroup = styled.fieldset`
   label {
     width: 64px;
     height: 22px;
-    background: #e9e9e9;
+    background: var(--grey1);
 
-    color: #000;
     font-size: 12px;
     font-weight: 400;
+    color: var(--black);
     align-content: center;
   }
   input[type="radio"]:checked + label {
-    border-top: 1px solid #e9e9e9;
-    background: #fff;
+    border-top: 1px solid var(--grey1);
+    background: white;
 
-    color: #ea328f;
     font-weight: 700;
+    color: var(--pink);
   }
 `;
 

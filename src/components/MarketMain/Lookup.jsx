@@ -76,7 +76,7 @@ const Lookup = () => {
 const Wrapper = styled.section`
   height: fit-content;
   padding: 24px 40px;
-  background: #e9e9e9;
+  background: var(--grey1);
 
   display: grid;
   grid-template-areas:
@@ -110,9 +110,9 @@ const Title = styled.p`
   }
 
   b {
-    color: #ea328f;
     font-size: 12px;
     font-weight: 700;
+    color: var(--pink);
   }
 `;
 
@@ -177,11 +177,12 @@ const Form = styled.form`
 
     width: 216px;
     height: 22px;
-    border: 1px solid #999;
+    border: 1px solid var(--grey2);
 
-    color: #999;
+    font-family: "Pretendard-regular";
     font-size: 12px;
     font-weight: 400;
+    color: var(--grey2);
     text-align: center;
   }
 
@@ -189,19 +190,20 @@ const Form = styled.form`
     height: 100%;
     padding: 4px 16px;
     border-radius: 2px;
-    background-color: #ea328f;
+    background-color: var(--pink);
 
-    color: #fff;
+    font-family: "Pretendard-regular";
     font-size: 12px;
     font-weight: 700;
+    color: white;
   }
 
   small {
     grid-area: description;
 
-    color: #ea328f;
     font-size: 12px;
     font-weight: 400;
+    color: var(--pink);
   }
 `;
 
@@ -210,9 +212,9 @@ const Ul = styled.ul`
   list-style-position: inside;
 
   li {
-    color: #999;
     font-size: 12px;
     font-weight: 400;
+    color: var(--grey2);
   }
 `;
 

@@ -1,6 +1,6 @@
 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g opacity="0.8">
-<rect x="40" y="40" width="40" height="40" rx="20" transform="rotate(-180 40 40)" fill="#E9E9E9"/>
+<rect x="40" y="40" width="40" height="40" rx="20" transform="rotate(-180 40 40)" fill="var(--grey1)"/>
 <rect x="32" y="32" width="24" height="24" transform="rotate(-180 32 32)" fill="url(#pattern0_312_92)"/>
 </g>
 <defs>

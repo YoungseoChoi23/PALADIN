@@ -39,9 +39,9 @@ const Top = styled.div`
   }
 
   p > small {
-    color: #999;
     font-size: 12px;
     font-weight: 400;
+    color: var(--grey2);
   }
 `;
 

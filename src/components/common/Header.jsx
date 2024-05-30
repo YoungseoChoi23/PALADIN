@@ -19,7 +19,7 @@ const Header = () => {
       <SearchBar>
         <img src={market_logo} />
         <form>
-          <p>신촌점</p>
+          <b>신촌점</b>
           <input name="input" type="text" />
           <input name="button" type="submit" value="검색" />
         </form>
@@ -46,14 +46,14 @@ const NavBar = styled.nav`
     height: 100%;
     padding: 0 8px;
 
-    color: #fff;
     font-size: 16px;
     font-weight: 700;
+    color: white;
     align-content: center;
   }
   .current {
-    background: #fff;
-    color: #3962ad;
+    background: white;
+    color: var(--blue3);
   }
 `;
 
@@ -80,25 +80,27 @@ const SearchBar = styled.section`
     border: 2px solid #33afe9;
     overflow: hidden;
   }
-  form p {
-    color: #33afe9;
+  form b {
+    padding-left: 32px;
+
     font-size: 12px;
     font-weight: 700;
-
-    padding-left: 32px;
+    color: #33afe9;
   }
   form input[type="text"] {
     flex: 1;
     height: 100%;
+    font-family: "Pretendard-regular";
   }
   form input[type="submit"] {
     width: 80px;
     height: 40px;
     background-color: #33afe9;
 
-    color: white;
+    font-family: "Pretendard-regular";
     font-size: 16px;
     font-weight: 700;
+    color: white;
   }
 `;
 

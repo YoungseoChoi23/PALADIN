@@ -32,9 +32,9 @@ const Wrapper = styled.div`
     text-align: end;
     align-content: end;
 
-    background: #3962ad;
+    background: var(--blue3);
     border-bottom: 1px solid #fafafa;
-    color: #ffffff;
+    color: white;
   }
 `;
 
@@ -46,7 +46,7 @@ const Ul = styled.ul`
   li {
     width: 98px;
     height: 52px;
-    border: 1px solid #e8edf6;
+    border: 1px solid var(--blue1);
   }
 
   li a {
@@ -61,7 +61,7 @@ const Ul = styled.ul`
 
   li:hover {
     background-color: #cee0ff;
-    border: 1px solid #3962ad;
+    border: 1px solid var(--blue3);
   }
 `;
 
