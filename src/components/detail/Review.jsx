@@ -20,10 +20,10 @@ const Review = () => {
   const handleReviewTextChange = event => {
     setReviewText(event.target.value);
   };
-  const isLogin = !!localStorage.getItem("paladintoken");
+  const accessToken = localStorage.getItem("paladintoken");
 
   const submitReview = async () => {
-    if (!isLogin) {
+    if (!accessToken) {
       alert("로그인 후 이용가능합니다!");
       navigate("/login");
     } else {
@@ -32,8 +32,16 @@ const Review = () => {
         rating: 5,
         memberId: 1,
       };
+      const accessToken = localStorage.getItem("paladintoken");
+
+      console.log("Submitting review with data:", reviewData);
+      console.log("Using access token:", accessToken);
       try {
-        const response = await CreateReview({ productId, reviewData });
+        const response = await CreateReview({
+          productId,
+          reviewData,
+          accessToken,
+        });
         console.log("Review submitted successfully:", response);
         setReviewText("");
       } catch (error) {

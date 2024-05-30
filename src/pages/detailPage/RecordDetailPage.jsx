@@ -13,7 +13,6 @@ const RecordDetailPage = () => {
   const getRecordImgData = async productId => {
     if (productId) {
       const res = await getProduct();
-      console.log(res);
       setImg(res.data.productTypes[1].products[productId - 7].items[0].imgPath);
     }
   };
@@ -24,7 +23,6 @@ const RecordDetailPage = () => {
   const getRecordDetailData = async productId => {
     if (productId) {
       const res = await ProductDetail({ productId });
-      console.log(res);
       setData(res);
     }
   };

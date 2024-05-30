@@ -13,7 +13,6 @@ const BookDetailPage = () => {
   const getBookDetailData = async productId => {
     if (productId) {
       const res = await ProductDetail({ productId });
-      console.log(res);
       setData(res);
     }
   };
@@ -31,7 +30,6 @@ const BookDetailPage = () => {
   const getBookImgData = async productId => {
     if (productId) {
       const res = await getProduct();
-      console.log(res);
       setImg(res.data.productTypes[0].products[productId - 2].items[0].imgPath);
     }
   };

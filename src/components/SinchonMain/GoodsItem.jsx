@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import arrowRight from "../../assets/S_main/arrow_right.svg";
 
 const GoodsItem = ({ book, name, price, productId }) => {
   const navigate = useNavigate();
