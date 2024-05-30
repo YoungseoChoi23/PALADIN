@@ -11,7 +11,7 @@ const List = ({ title, list }) => {
           list.map(item => {
             return (
               <li key={`${Date.now()}-${Math.random()}`}>
-                <Link to="#">{item}</Link>
+                <Link to="/sinchonMain">{item}</Link>
               </li>
             );
           })}
