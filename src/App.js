@@ -18,10 +18,7 @@ function App() {
       <Route path="/login/loading" element={<LoginLoadingPage />} />
       <Route path="/" element={<MarketMainPage />} />
       <Route path="/sinchonMain" element={<SinchonMainPage />} />
-      <Route
-        path="/sinchonMain/recordDetail/:productId"
-        element={<RecordDetailPage />}
-      />
+      <Route path="/recordDetail/:productId" element={<RecordDetailPage />} />
       <Route path="/bookDetail/:productId" element={<BookDetailPage />} />
       <Route path="/goodsDetail/:productId" element={<GoodsDetailPage />} />
       <Route path="/cart" element={<CartPage />} />

@@ -5,7 +5,7 @@ const GoodsItem = ({ book, name, price, productId }) => {
   const navigate = useNavigate();
 
   const ProductDetail = () => {
-    navigate(`/sinchonMain/goodsDetail/${productId}`);
+    navigate(`/goodsDetail/${productId}`);
   };
   return (
     <Item>
