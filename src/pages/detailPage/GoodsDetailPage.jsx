@@ -53,6 +53,7 @@ const GoodsDetailPage = () => {
             location={data.data && lowestPriceItem.location}
             type="상품"
             img={img}
+            itemId={data.data && data.data.items.items[0].itemId}
           />
           <DetailTab2 />
         </DetailWrapper>

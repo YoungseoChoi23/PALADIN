@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { postCart } from "../../services/api/carts";
+import { useNavigate } from "react-router-dom";
 
 const RecordDetailItem = ({
   title,
@@ -8,7 +10,20 @@ const RecordDetailItem = ({
   state,
   location,
   img,
+  itemId,
 }) => {
+  const navigate = useNavigate();
+
+  const addToCart = itemId => {
+    postCart(itemId)
+      .then(res => {
+        alert(res.data.message);
+      })
+      .catch(err => {
+        alert("로그인 후 이용 가능합니다.");
+        navigate("/login");
+      });
+  };
   return (
     <>
       <DetailItem>
@@ -45,7 +60,9 @@ const RecordDetailItem = ({
             </div>
             <div className="buttons">
               <button className="online-purchase">온라인 구매</button>
-              <button className="add-cart">장바구니 추가</button>
+              <button className="add-cart" onClick={() => addToCart(itemId)}>
+                장바구니 추가
+              </button>
             </div>
           </div>
         </div>

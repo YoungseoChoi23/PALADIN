@@ -127,6 +127,7 @@ const DetailTab = ({ isRecord, img }) => {
                       location={book.location}
                       state={book.status}
                       img={img}
+                      itemId={book.itemId}
                     />
                   ))}
                 </>
@@ -141,6 +142,7 @@ const DetailTab = ({ isRecord, img }) => {
                       location={book.location}
                       state={book.status}
                       img={img}
+                      itemId={book.itemId}
                     />
                   ))}
                 </>
