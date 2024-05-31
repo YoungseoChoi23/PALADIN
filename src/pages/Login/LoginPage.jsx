@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import kakao_login from "../../assets/login/kakao_login.svg";
+import Footer from "../../components/common/Footer";
 
 const LoginPage = () => {
   const [checked, setChecked] = useState(false);
@@ -41,6 +42,7 @@ const LoginPage = () => {
       <div className="kakao-btn" onClick={handlekakaoLogin}>
         <img src={kakao_login} alt="" />
       </div>
+      <Footer />
     </Wrapper>
   );
 };

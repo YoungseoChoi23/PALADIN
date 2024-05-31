@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { ProductDetail, getProduct } from "../../services/api/example";
 import { useParams } from "react-router-dom";
 import Header from "../../components/common/Header";
+import Footer from "../../components/common/Footer";
 
 const RecordDetailPage = () => {
   const { productId } = useParams();
@@ -57,6 +58,7 @@ const RecordDetailPage = () => {
           <DetailTab isRecord={true} img={img} />
         </DetailWrapper>
       </DetailStyle>
+      <Footer />
     </>
   );
 };

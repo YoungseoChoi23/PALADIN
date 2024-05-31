@@ -9,7 +9,6 @@ const Item = ({ data }) => {
   if (data.type === "book") Wrapper = BookItem;
 
   const deleteCartItem = cartItemId => {
-    console.log("SAD");
     deleteCart(cartItemId)
       .then(res => {
         console.log(res);

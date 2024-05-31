@@ -11,6 +11,7 @@ import Record from "../../components/SinchonMain/Record";
 import Goods from "../../components/SinchonMain/Goods";
 import GetDirectionModal from "../../components/SinchonMain/GetDirectionModal";
 import Header from "../../components/common/Header";
+import Footer from "../../components/common/Footer";
 
 const SinchonMainPage = () => {
   const [isMapModalOpen, setIsMapModalOpen] = useState(false);
@@ -94,6 +95,7 @@ const SinchonMainPage = () => {
           />
         </SideBars>
       </CategorySideBar>
+      <Footer />
     </Wrapper>
   );
 };
