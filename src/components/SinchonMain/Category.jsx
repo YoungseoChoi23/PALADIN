@@ -11,7 +11,7 @@ const Category = () => {
   };
 
   const handlePage = () => {
-    navigate("/sinchonMain");
+    activeButton === 3 ? navigate("/list/music") : navigate("/list/book"); //도서 목록으로 이동
   };
   return (
     <CategoryBox>

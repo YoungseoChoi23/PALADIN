@@ -5,9 +5,9 @@ const SecondHandItem = ({ type, book, name, price, discount, productId }) => {
   const navigate = useNavigate();
 
   const ProductDetail = () => {
-    if (type == "도서") navigate(`/sinchonMain/bookDetail/${productId}`);
+    if (type == "도서") navigate(`/bookDetail/${productId}`);
     else {
-      navigate(`/sinchonMain/recordDetail/${productId}`);
+      navigate(`/recordDetail/${productId}`);
     }
   };
   return (

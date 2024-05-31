@@ -22,14 +22,8 @@ function App() {
         path="/sinchonMain/recordDetail/:productId"
         element={<RecordDetailPage />}
       />
-      <Route
-        path="/sinchonMain/bookDetail/:productId"
-        element={<BookDetailPage />}
-      />
-      <Route
-        path="/sinchonMain/goodsDetail/:productId"
-        element={<GoodsDetailPage />}
-      />
+      <Route path="/bookDetail/:productId" element={<BookDetailPage />} />
+      <Route path="/goodsDetail/:productId" element={<GoodsDetailPage />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/list/book" element={<BookListPage />} />
       <Route path="/list/music" element={<MusicListPage />} />
