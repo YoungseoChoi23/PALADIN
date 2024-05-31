@@ -36,7 +36,7 @@ const RecordDetailItem = ({
               <div className="detail-text2">
                 {type === "도서" ? (
                   <div className="location">
-                    {type} 위치: <p>{location}</p> (위에서부터 4번째칸)
+                    {type} 위치: <p>{location}</p>
                   </div>
                 ) : (
                   <></>
@@ -138,6 +138,7 @@ const DetailItem = styled.div`
     line-height: normal;
     display: flex;
     gap: 3px;
+    flex-wrap: nowrap;
   }
 
   .location p,
