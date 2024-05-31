@@ -10,12 +10,14 @@ const Header = ({ isNav = false }) => {
       <header>
         <NavBar>
           <ul>
-            <li className="current">중고매장</li>
+            <li className="current" onClick={() => navigate("/")}>
+              중고매장
+            </li>
             <li>온라인 알라딘</li>
           </ul>
           <ul>
-            <li>장바구니</li>
-            <li>회원가입</li>
+            <li onClick={() => navigate("/cart")}>장바구니</li>
+            <li onClick={() => navigate("/login")}>로그인</li>
             <li>중고매장 FAQ</li>
           </ul>
         </NavBar>

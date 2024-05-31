@@ -1,19 +1,30 @@
 import React from "react";
 import ButtonBlue from "../common/ButtonBlue";
 import styled from "styled-components";
+import { deleteCart } from "../../services/api/carts";
 
 const Item = ({ data }) => {
   let Wrapper = ListItem;
+
   if (data.type === "book") Wrapper = BookItem;
+
+  const deleteCartItem = cartItemId => {
+    console.log("SAD");
+    deleteCart(cartItemId)
+      .then(res => {
+        console.log(res);
+        alert("상품이 장바구니에서 삭제되었습니다.");
+        window.location.reload();
+      })
+      .catch(err => console.log(err));
+  };
 
   return (
     <Wrapper>
       <img />
       <div className="description">
-        <h2 className="title">{data.title}</h2>
-        <span className="info">
-          {data.publisher}/{data.writer}
-        </span>
+        <h2 className="title">{data.productName}</h2>
+        <span className="info">{data.info}</span>
         <span className="price">
           가격: <span className="highlightPink">{data.price}원</span>
         </span>
@@ -21,12 +32,14 @@ const Item = ({ data }) => {
           위치: <span className="highlightPink">{data.location}</span>
         </span>
         <span className="condition">
-          상태: <span className="highlightPink">{data.condition}</span>
+          상태: <span className="highlightPink">{data.status}</span>
         </span>
       </div>
       <div className="btns">
         <ButtonBlue>출력하기</ButtonBlue>
-        <ButtonBlue>삭제하기</ButtonBlue>
+        <ButtonBlue onClick={() => deleteCartItem(data.cartItemId)}>
+          삭제하기
+        </ButtonBlue>
       </div>
     </Wrapper>
   );
