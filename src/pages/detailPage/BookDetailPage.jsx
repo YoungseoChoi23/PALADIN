@@ -31,7 +31,10 @@ const BookDetailPage = () => {
   const getBookImgData = async productId => {
     if (productId) {
       const res = await getProduct();
-      setImg(res.data.productTypes[0].products[productId - 2].items[0].imgPath);
+      setImg(
+        res.data.productTypes[0].products[productId - 2] &&
+          res.data.productTypes[0].products[productId - 2].items[0].imgPath,
+      );
     }
   };
   useEffect(() => {
@@ -52,6 +55,7 @@ const BookDetailPage = () => {
             location={data.data && lowestPriceItem.location}
             type="도서"
             img={img}
+            itemId={data.dat}
           />
           <DetailTab isRecord={false} img={img} />
         </DetailWrapper>
