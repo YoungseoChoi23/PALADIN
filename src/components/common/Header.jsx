@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Header = ({ isNav = false }) => {
   const navigate = useNavigate();
   const [input, setInput] = useState("");
-
+  const isLogin = !!localStorage.getItem("paladintoken");
   const handleChange = e => {
     setInput(e.target.value);
   };
@@ -26,7 +26,9 @@ const Header = ({ isNav = false }) => {
           </ul>
           <ul>
             <li onClick={() => navigate("/cart")}>장바구니</li>
-            <li onClick={() => navigate("/login")}>로그인</li>
+            <li onClick={() => navigate("/login")}>
+              {isLogin ? "로그아웃" : "로그인"}
+            </li>
             <li>중고매장 FAQ</li>
           </ul>
         </NavBar>
