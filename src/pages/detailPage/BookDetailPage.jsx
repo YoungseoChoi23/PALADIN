@@ -4,6 +4,7 @@ import Detail from "../../components/detail/Detail";
 import DetailTab from "../../components/detail/DetailTap";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
+import Header from "../../components/common/Header";
 
 const BookDetailPage = () => {
   const { productId } = useParams();
@@ -38,6 +39,7 @@ const BookDetailPage = () => {
   }, [productId]);
   return (
     <>
+      <Header />
       <DetailStyle>
         <DetailWrapper>
           <Detail

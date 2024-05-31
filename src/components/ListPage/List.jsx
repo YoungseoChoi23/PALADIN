@@ -2,13 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import Item from "./Item";
 
-const List = ({ data, type, style }) => {
+const List = ({ data, type, style, detailRoute }) => {
   return (
     <Wrapper>
       {data.map(item => {
         return (
           <li key={`${Date.now()}-${Math.random()}`}>
-            <Item data={item} type={type} ListStyle={style} />
+            <Item
+              data={item}
+              type={type}
+              ListStyle={style}
+              productId={item.productId}
+              detailRoute={detailRoute}
+            />
           </li>
         );
       })}

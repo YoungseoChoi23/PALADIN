@@ -1,33 +1,35 @@
 import React from "react";
 import ButtonBlue from "../common/ButtonBlue";
+import { useNavigate } from "react-router-dom";
 
-const Item = ({ data, type, ListStyle }) => {
+const Item = ({ data, type, productId, ListStyle, detailRoute }) => {
+  const navigate = useNavigate();
+
   return (
-    <ListStyle>
+    <ListStyle onClick={() => navigate(`${detailRoute}/${productId}`)}>
       <img />
       <div className="description">
         <div className="title">
           <h2>
-            {data.title}
+            {data.productName}
             <span className="promo">{data.promo}</span>
           </h2>
         </div>
-        <span className="info">
-          {data.publisher}/{data.writer}
-        </span>
+        <span className="info">{data.info}</span>
         <span className="stock">
-          재고: <span className="highlightBlue">{data.stock}부</span>
+          재고: <span className="highlightBlue">{data.stockQuantity}부</span>
         </span>
         <span className="location">
-          {type} 위치: <span className="highlightPink">{data.location}</span>
+          {type} 위치:{" "}
+          <span className="highlightPink">{data.items.items[0].location}</span>
         </span>
         <span className="lowest">
-          최저가: <span className="highlightPink">{data.lowest}원</span>
+          최저가:{" "}
+          <span className="highlightPink">{data.items.items[0].price}원</span>
         </span>
-        <span className="price">정가: {data.price}원</span>
+        <span className="price">정가: {data.originalPrice}원</span>
       </div>
       <div className="btns">
-        <ButtonBlue>장바구니 추가</ButtonBlue>
         <ButtonBlue>서가 위치 보기</ButtonBlue>
       </div>
     </ListStyle>

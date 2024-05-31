@@ -4,6 +4,7 @@ import DetailTab2 from "../../components/detail/DetailTap2";
 import { useState, useEffect } from "react";
 import { ProductDetail, getProduct } from "../../services/api/example";
 import { useParams } from "react-router-dom";
+import Header from "../../components/common/Header";
 
 const GoodsDetailPage = () => {
   const { productId } = useParams();
@@ -39,6 +40,7 @@ const GoodsDetailPage = () => {
 
   return (
     <>
+      <Header />
       <DetailStyle>
         <DetailWrapper>
           <Detail

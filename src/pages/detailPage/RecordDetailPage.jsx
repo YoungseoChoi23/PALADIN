@@ -4,6 +4,7 @@ import DetailTab from "../../components/detail/DetailTap";
 import { useState, useEffect } from "react";
 import { ProductDetail, getProduct } from "../../services/api/example";
 import { useParams } from "react-router-dom";
+import Header from "../../components/common/Header";
 
 const RecordDetailPage = () => {
   const { productId } = useParams();
@@ -39,6 +40,7 @@ const RecordDetailPage = () => {
 
   return (
     <>
+      <Header />
       <DetailStyle>
         <DetailWrapper>
           <Detail

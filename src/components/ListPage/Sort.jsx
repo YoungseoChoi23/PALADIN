@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-const Sort = () => {
+const Sort = ({ count }) => {
   return (
     <section>
-      <Sum>총 {Intl.NumberFormat().format()}건의 결과</Sum>
+      <Sum>총 {count}건의 결과</Sum>
       <Fieldset>
         <input type="radio" id="sort1" name="sort" value="상품명순" />
         <label htmlFor="sort1">상품명순</label>
