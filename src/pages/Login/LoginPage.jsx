@@ -11,39 +11,41 @@ const LoginPage = () => {
   };
 
   return (
-    <Wrapper>
-      <p className="title">알라딘 회원 로그인</p>
+    <>
+      <Wrapper>
+        <p className="title">알라딘 회원 로그인</p>
 
-      <LoginForm>
-        <div className="inputs">
-          <input className="id" placeholder="ID 또는 E-Mail" />
-          <input className="pw" placeholder="비밀번호" />
-        </div>
-        <div className="btn">로그인</div>
-      </LoginForm>
-
-      <Options>
-        <div>
-          <div className="save">
-            <input
-              type="checkbox"
-              checked={checked}
-              onClick={() => setChecked(!checked)}
-            />
-            ID 또는 E-Mail 저장
+        <LoginForm>
+          <div className="inputs">
+            <input className="id" placeholder="ID 또는 E-Mail" />
+            <input className="pw" placeholder="비밀번호" />
           </div>
+          <div className="btn">로그인</div>
+        </LoginForm>
+
+        <Options>
+          <div>
+            <div className="save">
+              <input
+                type="checkbox"
+                checked={checked}
+                onClick={() => setChecked(!checked)}
+              />
+              ID 또는 E-Mail 저장
+            </div>
+          </div>
+          <div>비밀번호 찾기</div>
+          <div>아이디 찾기</div>
+        </Options>
+
+        <p className="kakao-title">카카오 계정으로 로그인하기</p>
+
+        <div className="kakao-btn" onClick={handlekakaoLogin}>
+          <img src={kakao_login} alt="" />
         </div>
-        <div>비밀번호 찾기</div>
-        <div>아이디 찾기</div>
-      </Options>
-
-      <p className="kakao-title">카카오 계정으로 로그인하기</p>
-
-      <div className="kakao-btn" onClick={handlekakaoLogin}>
-        <img src={kakao_login} alt="" />
-      </div>
+      </Wrapper>
       <Footer />
-    </Wrapper>
+    </>
   );
 };
 
