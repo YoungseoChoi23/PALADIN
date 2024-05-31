@@ -22,7 +22,7 @@ const Header = ({ isNav = false }) => {
           </ul>
         </NavBar>
         <SearchBar>
-          <img src={market_logo} alt="logo" />
+          <img src={market_logo} alt="logo" onClick={() => navigate("/")} />
           <form>
             <b>신촌점</b>
             <input name="input" type="text" />
