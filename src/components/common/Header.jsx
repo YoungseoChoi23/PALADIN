@@ -47,7 +47,7 @@ const Header = ({ isNav = false }) => {
         </SearchBar>
         {isNav && (
           <Container>
-            <div>매장소개</div>
+            <div onClick={() => navigate("/sinchonMain")}>매장소개</div>
             <div onClick={() => navigate("/list/book")}>중고 도서</div>
             <div onClick={() => navigate("/list/goods")}>알라딘 굿즈</div>
             <div onClick={() => navigate("/list/music")}>음반 비디오</div>
