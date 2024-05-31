@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import market_logo from "../../assets/common/header/market_logo.png";
-import Category from "../SinchonMain/Category";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ isNav = false }) => {
+  const navigate = useNavigate();
   return (
     <>
       <header>
@@ -29,9 +30,9 @@ const Header = ({ isNav = false }) => {
         {isNav && (
           <Container>
             <div>매장소개</div>
-            <div>중고 도서</div>
-            <div>알라딘 굿즈</div>
-            <div>음반 비디오</div>
+            <div onClick={() => navigate("/list/book")}>중고 도서</div>
+            <div onClick={() => navigate("/list/goods")}>알라딘 굿즈</div>
+            <div onClick={() => navigate("/list/music")}>음반 비디오</div>
           </Container>
         )}
       </header>
