@@ -10,6 +10,7 @@ import CartPage from "./pages/CartPage/CartPage";
 import BookListPage from "./pages/listPage/BookListPage";
 import MusicListPage from "./pages/listPage/MusicListPage";
 import GoodsListPage from "./pages/listPage/GoodsListPage";
+import SearchedListPage from "./pages/listPage/SearchedPage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route path="/list/book" element={<BookListPage />} />
       <Route path="/list/music" element={<MusicListPage />} />
       <Route path="/list/goods" element={<GoodsListPage />} />
+      <Route path="/list/search" element={<SearchedListPage />} />
     </Routes>
   );
 }

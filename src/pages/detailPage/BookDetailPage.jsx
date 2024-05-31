@@ -5,6 +5,7 @@ import DetailTab from "../../components/detail/DetailTap";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import Header from "../../components/common/Header";
+import Footer from "../../components/common/Footer";
 
 const BookDetailPage = () => {
   const { productId } = useParams();
@@ -60,6 +61,7 @@ const BookDetailPage = () => {
           <DetailTab isRecord={false} img={img} />
         </DetailWrapper>
       </DetailStyle>
+      <Footer />
     </>
   );
 };

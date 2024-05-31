@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import market_logo from "../../assets/common/header/market_logo.png";
 import { useNavigate } from "react-router-dom";
 
 const Header = ({ isNav = false }) => {
   const navigate = useNavigate();
+  const [input, setInput] = useState("");
+
+  const handleChange = e => {
+    setInput(e.target.value);
+  };
+
+  const searchProduct = () => {
+    navigate(`/list/search/?input=${input}`);
+  };
   return (
     <>
       <header>
@@ -22,12 +31,19 @@ const Header = ({ isNav = false }) => {
           </ul>
         </NavBar>
         <SearchBar>
-          <img src={market_logo} alt="logo" />
-          <form>
+          <img src={market_logo} alt="logo" onClick={() => navigate("/")} />
+          <div className="form">
             <b>신촌점</b>
-            <input name="input" type="text" />
-            <input name="button" type="submit" value="검색" />
-          </form>
+            <input
+              name="input"
+              type="text"
+              onChange={handleChange}
+              value={input}
+            />
+            <div className="button" onClick={searchProduct}>
+              검색
+            </div>
+          </div>
         </SearchBar>
         {isNav && (
           <Container>
@@ -95,7 +111,7 @@ const SearchBar = styled.section`
   justify-content: center;
   gap: 50px;
 
-  form {
+  .form {
     width: 485px;
     height: 40px;
 
@@ -107,19 +123,19 @@ const SearchBar = styled.section`
     border: 2px solid #33afe9;
     overflow: hidden;
   }
-  form b {
+  .form b {
     padding-left: 32px;
 
     font-size: 12px;
     font-weight: 700;
     color: #33afe9;
   }
-  form input[type="text"] {
+  .form input[type="text"] {
     flex: 1;
     height: 100%;
     font-family: "Pretendard-regular";
   }
-  form input[type="submit"] {
+  .button {
     width: 80px;
     height: 40px;
     background-color: #33afe9;
@@ -128,6 +144,10 @@ const SearchBar = styled.section`
     font-size: 16px;
     font-weight: 700;
     color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
