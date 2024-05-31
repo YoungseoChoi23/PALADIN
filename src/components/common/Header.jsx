@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import market_logo from "../../assets/common/header/market_logo.png";
 import { useNavigate } from "react-router-dom";
-import { getSearchedList } from "../../services/api/search";
 
 const Header = ({ isNav = false }) => {
   const navigate = useNavigate();
@@ -13,7 +12,7 @@ const Header = ({ isNav = false }) => {
   };
 
   const searchProduct = () => {
-    navigate(`/list/search?input=${input}`);
+    navigate(`/list/search/?input=${input}`);
   };
   return (
     <>
@@ -33,7 +32,7 @@ const Header = ({ isNav = false }) => {
         </NavBar>
         <SearchBar>
           <img src={market_logo} alt="logo" onClick={() => navigate("/")} />
-          <form>
+          <div className="form">
             <b>신촌점</b>
             <input
               name="input"
@@ -44,7 +43,7 @@ const Header = ({ isNav = false }) => {
             <div className="button" onClick={searchProduct}>
               검색
             </div>
-          </form>
+          </div>
         </SearchBar>
         {isNav && (
           <Container>
@@ -112,7 +111,7 @@ const SearchBar = styled.section`
   justify-content: center;
   gap: 50px;
 
-  form {
+  .form {
     width: 485px;
     height: 40px;
 
@@ -124,14 +123,14 @@ const SearchBar = styled.section`
     border: 2px solid #33afe9;
     overflow: hidden;
   }
-  form b {
+  .form b {
     padding-left: 32px;
 
     font-size: 12px;
     font-weight: 700;
     color: #33afe9;
   }
-  form input[type="text"] {
+  .form input[type="text"] {
     flex: 1;
     height: 100%;
     font-family: "Pretendard-regular";
