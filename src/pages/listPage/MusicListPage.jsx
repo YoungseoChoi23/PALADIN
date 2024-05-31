@@ -11,7 +11,7 @@ import dummy from "../../components/ListPage/dummy";
 const MusicListPage = () => {
   return (
     <ListPage>
-      <Header />
+      <Header isNav={true} />
       <Sidebar title="음반 분류" list={category} />
       <main>
         <Sort />

@@ -11,7 +11,7 @@ import dummy from "../../components/ListPage/dummy";
 const GoodsListPage = () => {
   return (
     <ListPage>
-      <Header />
+      <Header isNav={true} />
       <main>
         <Sort />
         <Pagination />

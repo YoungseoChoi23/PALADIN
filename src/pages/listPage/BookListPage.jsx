@@ -12,7 +12,7 @@ import dummy from "../../components/ListPage/dummy";
 const BookListPage = () => {
   return (
     <ListPage>
-      <Header />
+      <Header isNav={true} />
       <Sidebar title="국내 도서 분류" list={category} />
       <main>
         <Sort />
