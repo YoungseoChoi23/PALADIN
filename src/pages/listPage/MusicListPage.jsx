@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/common/Header";
 import Footer from "../../components/common/Footer";
 import Sidebar from "../../components/ListPage/Sidebar";
@@ -7,16 +7,35 @@ import Pagination from "../../components/ListPage/Pagination";
 import List from "../../components/ListPage/List";
 import { ListPage, ListItem } from "../../components/ListPage/ListStyle";
 import dummy from "../../components/ListPage/dummy";
+import { getList } from "../../services/api/list";
 
 const MusicListPage = () => {
+  const [data, setData] = useState([]);
+  const [count, setCount] = useState("");
+
+  useEffect(() => {
+    getList("records")
+      .then(res => {
+        console.log(res);
+        setCount(res.data.totalProducts);
+        setData(res.data.products);
+      })
+      .catch(err => console.log(err));
+  }, []);
+
   return (
     <ListPage>
-      <Header />
+      <Header isNav={true} />
       <Sidebar title="음반 분류" list={category} />
       <main>
-        <Sort />
+        <Sort count={count} />
         <Pagination />
-        <List data={dummy} type="음반" style={ListItem} />
+        <List
+          data={data}
+          type="음반"
+          style={ListItem}
+          detailRoute={"/recordDetail"}
+        />
       </main>
       <Footer />
     </ListPage>

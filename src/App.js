@@ -16,20 +16,11 @@ function App() {
     <Routes>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/login/loading" element={<LoginLoadingPage />} />
-      <Route path="/marketMain" element={<MarketMainPage />} />
+      <Route path="/" element={<MarketMainPage />} />
       <Route path="/sinchonMain" element={<SinchonMainPage />} />
-      <Route
-        path="/sinchonMain/recordDetail/:productId"
-        element={<RecordDetailPage />}
-      />
-      <Route
-        path="/sinchonMain/bookDetail/:productId"
-        element={<BookDetailPage />}
-      />
-      <Route
-        path="/sinchonMain/goodsDetail/:productId"
-        element={<GoodsDetailPage />}
-      />
+      <Route path="/recordDetail/:productId" element={<RecordDetailPage />} />
+      <Route path="/bookDetail/:productId" element={<BookDetailPage />} />
+      <Route path="/goodsDetail/:productId" element={<GoodsDetailPage />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/list/book" element={<BookListPage />} />
       <Route path="/list/music" element={<MusicListPage />} />

@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Header from "../../components/common/Header";
 import Footer from "../../components/common/Footer";
-import dummy from "../../components/CartPage/dummy";
 import Item from "../../components/CartPage/Item";
+import { getCartList } from "../../services/api/carts";
+import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
+  const [list, setList] = useState([]);
+  const navigate = useNavigate();
+  const isLogin = !!localStorage.getItem("paladintoken");
+
+  useEffect(() => {
+    console.log(isLogin);
+    if (!isLogin) {
+      alert("로그인 후 이용가능합니다.");
+      navigate("/login");
+    } else {
+      getCartList()
+        .then(res => {
+          console.log(res);
+          setList(res.data.cartItemList);
+        })
+        .catch(err => console.log(err));
+    }
+  }, []);
+
   return (
     <div>
       <Header />
@@ -18,7 +38,7 @@ const CartPage = () => {
           중고샵' 또는 새 상품의 '보관함 담기' 기능을 이용해주시기 바랍니다.
         </small>
         <ul>
-          {dummy.map(item => {
+          {list.map(item => {
             return (
               <li key={`${Date.now()}-${Math.random()}`}>
                 <Item data={item} />

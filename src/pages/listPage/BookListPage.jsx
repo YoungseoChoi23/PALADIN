@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Header from "../../components/common/Header";
 import Footer from "../../components/common/Footer";
@@ -7,17 +7,33 @@ import Sort from "../../components/ListPage/Sort";
 import Pagination from "../../components/ListPage/Pagination";
 import List from "../../components/ListPage/List";
 import { ListPage, ListItem } from "../../components/ListPage/ListStyle";
-import dummy from "../../components/ListPage/dummy";
+import { getList } from "../../services/api/list";
 
 const BookListPage = () => {
+  const [data, setData] = useState([]);
+  const [count, setCount] = useState("");
+
+  useEffect(() => {
+    getList("books")
+      .then(res => {
+        setCount(res.data.totalProducts);
+        setData(res.data.products);
+      })
+      .catch(err => console.log(err));
+  }, []);
   return (
     <ListPage>
-      <Header />
+      <Header isNav={true} />
       <Sidebar title="국내 도서 분류" list={category} />
       <main>
-        <Sort />
+        <Sort count={count} />
         <Pagination />
-        <List data={dummy} type="도서" style={BookListItem} />
+        <List
+          data={data}
+          type="도서"
+          style={BookListItem}
+          detailRoute={"/bookDetail"}
+        />
       </main>
       <Footer />
     </ListPage>

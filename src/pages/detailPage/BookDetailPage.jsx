@@ -4,6 +4,7 @@ import Detail from "../../components/detail/Detail";
 import DetailTab from "../../components/detail/DetailTap";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
+import Header from "../../components/common/Header";
 
 const BookDetailPage = () => {
   const { productId } = useParams();
@@ -30,7 +31,10 @@ const BookDetailPage = () => {
   const getBookImgData = async productId => {
     if (productId) {
       const res = await getProduct();
-      setImg(res.data.productTypes[0].products[productId - 2].items[0].imgPath);
+      setImg(
+        res.data.productTypes[0].products[productId - 2] &&
+          res.data.productTypes[0].products[productId - 2].items[0].imgPath,
+      );
     }
   };
   useEffect(() => {
@@ -38,6 +42,7 @@ const BookDetailPage = () => {
   }, [productId]);
   return (
     <>
+      <Header />
       <DetailStyle>
         <DetailWrapper>
           <Detail
@@ -50,6 +55,7 @@ const BookDetailPage = () => {
             location={data.data && lowestPriceItem.location}
             type="도서"
             img={img}
+            itemId={data.dat}
           />
           <DetailTab isRecord={false} img={img} />
         </DetailWrapper>
