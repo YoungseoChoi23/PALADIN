@@ -1,32 +1,58 @@
 import React from "react";
 import styled from "styled-components";
 import market_logo from "../../assets/common/header/market_logo.png";
+import Category from "../SinchonMain/Category";
 
-const Header = () => {
+const Header = ({ isNav = false }) => {
   return (
-    <header>
-      <NavBar>
-        <ul>
-          <li className="current">중고매장</li>
-          <li>온라인 알라딘</li>
-        </ul>
-        <ul>
-          <li>장바구니</li>
-          <li>회원가입</li>
-          <li>중고매장 FAQ</li>
-        </ul>
-      </NavBar>
-      <SearchBar>
-        <img src={market_logo} alt="logo" />
-        <form>
-          <b>신촌점</b>
-          <input name="input" type="text" />
-          <input name="button" type="submit" value="검색" />
-        </form>
-      </SearchBar>
-    </header>
+    <>
+      <header>
+        <NavBar>
+          <ul>
+            <li className="current">중고매장</li>
+            <li>온라인 알라딘</li>
+          </ul>
+          <ul>
+            <li>장바구니</li>
+            <li>회원가입</li>
+            <li>중고매장 FAQ</li>
+          </ul>
+        </NavBar>
+        <SearchBar>
+          <img src={market_logo} alt="logo" />
+          <form>
+            <b>신촌점</b>
+            <input name="input" type="text" />
+            <input name="button" type="submit" value="검색" />
+          </form>
+        </SearchBar>
+        {isNav && (
+          <Container>
+            <div>매장소개</div>
+            <div>중고 도서</div>
+            <div>알라딘 굿즈</div>
+            <div>음반 비디오</div>
+          </Container>
+        )}
+      </header>
+    </>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: -10px;
+  padding-left: 40px;
+  padding-bottom: 10px;
+
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--blue3);
+
+  border-bottom: 1px solid #33afe9;
+`;
 
 const NavBar = styled.nav`
   height: 40px;
@@ -65,8 +91,6 @@ const SearchBar = styled.section`
   align-items: center;
   justify-content: center;
   gap: 50px;
-
-  border-bottom: 1px solid #33afe9;
 
   form {
     width: 485px;

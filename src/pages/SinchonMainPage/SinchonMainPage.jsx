@@ -10,6 +10,7 @@ import SecondHandBook from "../../components/SinchonMain/SecondHandBook";
 import Record from "../../components/SinchonMain/Record";
 import Goods from "../../components/SinchonMain/Goods";
 import GetDirectionModal from "../../components/SinchonMain/GetDirectionModal";
+import Header from "../../components/common/Header";
 
 const SinchonMainPage = () => {
   const [isMapModalOpen, setIsMapModalOpen] = useState(false);
@@ -29,6 +30,7 @@ const SinchonMainPage = () => {
   };
   return (
     <Wrapper>
+      <Header isNav={true} />
       <div className="SinchonMainPage">
         <div className="banner">
           <img src={banner} alt="banner img" />
