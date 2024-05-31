@@ -30,73 +30,75 @@ const SinchonMainPage = () => {
     setIsCrossSectionModalOpen(false);
   };
   return (
-    <Wrapper>
+    <>
       <Header isNav={true} />
-      <div className="SinchonMainPage">
-        <div className="banner">
-          <img src={banner} alt="banner img" />
-          <div className="banner-text">
-            <div className="banner-text1">신촌점</div>
-            <div className="banner-text2">
-              영업시간 : 09:30 ~ 22:00 <br />
-              정기휴일 : 설날(음력), 추석 당일{" "}
-            </div>
-            <div className="banner-text3">
-              매장통합 콜센터 : 1544-2514 <br />
-              주차장 : 없음
-              <br />
-              휠체어 사용 : 매장 진입 불가능
-              <br />
-              사용가능 지역화폐 : 제로페이
-            </div>
-            <div className="banner-buttons">
-              <button className="banner-wayButton" onClick={openMapModal}>
-                찾아오는 길
-              </button>
-              <GetDirectionModal
-                img={map}
-                isOpen={isMapModalOpen}
-                onClose={closeMapModal}
-              />
-              <button
-                className="banner-crossSectionButton"
-                onClick={openCrossSectionModal}
-              >
-                매장 서가 단면도
-              </button>
-              <GetDirectionModal
-                img={cross_section}
-                isOpen={isCrossSectionModalOpen}
-                onClose={closeCrossSectionModal}
-              />
+      <Wrapper>
+        <div className="SinchonMainPage">
+          <div className="banner">
+            <img src={banner} alt="banner img" />
+            <div className="banner-text">
+              <div className="banner-text1">신촌점</div>
+              <div className="banner-text2">
+                영업시간 : 09:30 ~ 22:00 <br />
+                정기휴일 : 설날(음력), 추석 당일{" "}
+              </div>
+              <div className="banner-text3">
+                매장통합 콜센터 : 1544-2514 <br />
+                주차장 : 없음
+                <br />
+                휠체어 사용 : 매장 진입 불가능
+                <br />
+                사용가능 지역화폐 : 제로페이
+              </div>
+              <div className="banner-buttons">
+                <button className="banner-wayButton" onClick={openMapModal}>
+                  찾아오는 길
+                </button>
+                <GetDirectionModal
+                  img={map}
+                  isOpen={isMapModalOpen}
+                  onClose={closeMapModal}
+                />
+                <button
+                  className="banner-crossSectionButton"
+                  onClick={openCrossSectionModal}
+                >
+                  매장 서가 단면도
+                </button>
+                <GetDirectionModal
+                  img={cross_section}
+                  isOpen={isCrossSectionModalOpen}
+                  onClose={closeCrossSectionModal}
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <CategorySideBar>
-        <CategoryWrapper>
-          <Category />
-          <SecondHandBook />
-          <Record />
-          <Goods />
-        </CategoryWrapper>
-        <SideBars>
-          <SideBar
-            sideBarName="매장소식"
-            detailText1="매입 후 <알라딘캐시> 정산 시 5% 추가 지급"
-            detailText2="매입 후 <알라딘캐시> 정산 시 10% 추가 지급"
-            detailText3="2024 서울 입학준비금 포인트 사용처"
-          />
-          <SideBar
-            sideBarName="중고매장 FAQ"
-            detailText1="매장의 위치/주소/전화번호를 알고 싶어요."
-            detailText2="중고매장의 재고 유무/가격/외관상태 확인 가능한가요?"
-            detailText3="중고매장에 방문해 중고 상품 판매도 가능한가요?"
-          />
-        </SideBars>
-      </CategorySideBar>
+        <CategorySideBar>
+          <CategoryWrapper>
+            <Category />
+            <SecondHandBook />
+            <Record />
+            <Goods />
+          </CategoryWrapper>
+          <SideBars>
+            <SideBar
+              sideBarName="매장소식"
+              detailText1="매입 후 <알라딘캐시> 정산 시 5% 추가 지급"
+              detailText2="매입 후 <알라딘캐시> 정산 시 10% 추가 지급"
+              detailText3="2024 서울 입학준비금 포인트 사용처"
+            />
+            <SideBar
+              sideBarName="중고매장 FAQ"
+              detailText1="매장의 위치/주소/전화번호를 알고 싶어요."
+              detailText2="중고매장의 재고 유무/가격/외관상태 확인 가능한가요?"
+              detailText3="중고매장에 방문해 중고 상품 판매도 가능한가요?"
+            />
+          </SideBars>
+        </CategorySideBar>
+      </Wrapper>
       <Footer />
-    </Wrapper>
+    </>
   );
 };
 export default SinchonMainPage;
