@@ -37,7 +37,7 @@ const SearchedListPage = () => {
         {data.map(item => {
           return (
             <Item>
-              <img />
+              <img src={item.imgPath} />
               <div className="description">
                 <div className="title">
                   <h2>{item.productName}</h2>

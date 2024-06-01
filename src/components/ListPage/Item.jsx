@@ -7,7 +7,7 @@ const Item = ({ data, type, productId, ListStyle, detailRoute }) => {
 
   return (
     <ListStyle onClick={() => navigate(`${detailRoute}/${productId}`)}>
-      <img />
+      <img src={data.imgPath} />
       <div className="description">
         <div className="title">
           <h2>
