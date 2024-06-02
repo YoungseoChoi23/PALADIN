@@ -50,6 +50,14 @@ const Review = () => {
           accessToken,
         });
         console.log("Review submitted successfully:", response);
+        const newReview = {
+          createdDate: new Date().toISOString(),
+          content: reviewData.content,
+          imgPaths: reviewData.image
+            ? URL.createObjectURL(reviewData.image)
+            : null,
+        };
+        setData([newReview, ...data]);
       } catch (error) {
         console.error("Error data:", error.response.data);
         console.error("Error status:", error.response.status);
@@ -57,6 +65,24 @@ const Review = () => {
         console.error("Error submitting review:", error);
       }
     }
+  };
+  useEffect(() => {
+    getReviewData(productId);
+  }, [productId]);
+
+  const getReviewData = async productId => {
+    if (productId) {
+      const res = await GetReview({ productId });
+      console.log(res.data);
+      const sortedData = res.data.sort(
+        (a, b) => new Date(b.createdDate) - new Date(a.createdDate),
+      );
+      setData(sortedData);
+    }
+  };
+
+  const handleReviewDelete = reviewId => {
+    setData(data.filter(review => review.reviewId !== reviewId));
   };
 
   return (
@@ -91,8 +117,15 @@ const Review = () => {
         </div>
 
         <div className="add-photo">
-          <div className="add-photo-text">사진 추가</div>
-          <input type="file" onChange={handleImageChange} />
+          <input
+            id="file-upload"
+            type="file"
+            onChange={handleImageChange}
+            style={{ display: "none" }}
+          />
+          <label htmlFor="file-upload" className="add-photo-text">
+            사진 추가
+          </label>
           <div>
             <img src={add_photo} />
           </div>
@@ -126,9 +159,11 @@ const Review = () => {
         {data.map(review => {
           return (
             <ReviewItem
+              reviewId={review.reviewId}
               date={review.createdDate}
               content={review.content}
               img={review.imgPaths}
+              ondelete={handleReviewDelete}
             />
           );
         })}

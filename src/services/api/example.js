@@ -52,11 +52,16 @@ export const Productlist = async ({ productId }) => {
 
 export const CreateReview = async ({ productId, reviewData, accessToken }) => {
   const formData = new FormData();
-  formData.append("content", reviewData.content);
-  formData.append("rating", reviewData.rating);
+  const text = { content: reviewData.content, rating: reviewData.rating };
+
+  formData.append(
+    "review",
+    new Blob([JSON.stringify(text)], { type: "application/json" }),
+  );
   if (reviewData.image) {
-    formData.append("image", reviewData.image);
+    formData.append("files", reviewData.image);
   }
+
   try {
     const response = await client.post(
       `/api/products/${productId}/reviews`,
@@ -64,7 +69,6 @@ export const CreateReview = async ({ productId, reviewData, accessToken }) => {
       {
         headers: {
           "Content-Type": "multipart/form-data",
-          Authorization: `${accessToken}`,
         },
       },
     );
@@ -77,6 +81,19 @@ export const CreateReview = async ({ productId, reviewData, accessToken }) => {
 export const GetReview = async ({ productId }) => {
   try {
     const response = await client.get(`/api/products/${productId}/reviews`);
+    return Promise.resolve(response);
+  } catch (error) {
+    return Promise.resolve(error);
+  }
+};
+
+export const DeleteReview = async ({ reviewId }) => {
+  try {
+    const response = await client.delete(`/api/products/reviews/${reviewId}`, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     return Promise.resolve(response);
   } catch (error) {
     return Promise.resolve(error);

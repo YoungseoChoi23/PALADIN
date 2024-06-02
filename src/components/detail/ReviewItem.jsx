@@ -2,20 +2,29 @@ import styled from "styled-components";
 import small_stars from "../../assets/detail/small_stars.svg";
 import deleteImg from "../../assets/detail/delete.svg";
 import { useState } from "react";
+import { DeleteReview } from "../../services/api/example";
 
-const ReviewItem = ({ date, content, img }) => {
+const ReviewItem = ({ date, content, img, reviewId, onDelete }) => {
   const [isVisible, setIsVisible] = useState(true);
 
-  const handleDeleteClick = () => {
-    setIsVisible(false); // 클릭 시 isVisible 상태를 false로 변경하여 리뷰 아이템 삭제
+  const handleDeleteClick = async () => {
+    try {
+      await DeleteReview({ reviewId });
+      setIsVisible(false);
+      if (onDelete) {
+        onDelete(reviewId);
+      }
+    } catch (error) {
+      console.error("Error deleting review:", error);
+    }
   };
-
   return (
     <>
-      {" "}
       {isVisible && (
         <ReviewItemWrapper>
-          <div className={`review-item-${img === "" ? "small" : "big"}`}>
+          <div
+            className={`review-item-${img && img.length > 0 ? "big" : "small"}`}
+          >
             <div className="date-stars">
               <div className="review-item-date">{date}</div>
               <div className="review-item-img">
@@ -23,15 +32,10 @@ const ReviewItem = ({ date, content, img }) => {
               </div>
             </div>
             <div className="review-item-content">{content}</div>
-            {img === null ? (
-              <></>
+            {img && img.length > 0 ? (
+              <img className="images" src={img} />
             ) : (
-              <div className="images">
-                <img src={img} />
-                <img src={img} />
-                <img src={img} />
-                <img src={img} />
-              </div>
+              <></>
             )}
             <div className="review-delete">
               <img src={deleteImg} onClick={handleDeleteClick} />
@@ -54,6 +58,7 @@ const ReviewItemWrapper = styled.div`
     box-sizing: border-box;
     padding-top: 21px;
     padding-left: 26px;
+    margin-bottom: 36px;
   }
   .review-item-big {
     width: 1200px;
@@ -64,6 +69,7 @@ const ReviewItemWrapper = styled.div`
     box-sizing: border-box;
     padding-top: 21px;
     padding-left: 26px;
+    margin-bottom: 36px;
   }
   .date-stars {
     display: flex;
@@ -105,6 +111,8 @@ const ReviewItemWrapper = styled.div`
     display: flex;
     gap: 20px;
     margin-top: 15px;
+    width: 216px;
+    height: 216px;
   }
   .review-delete {
     display: flex;
