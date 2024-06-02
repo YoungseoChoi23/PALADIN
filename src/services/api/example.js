@@ -89,11 +89,7 @@ export const GetReview = async ({ productId }) => {
 
 export const DeleteReview = async ({ reviewId }) => {
   try {
-    const response = await client.delete(`/api/products/reviews/${reviewId}`, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+    const response = await client.delete(`/api/products/reviews/${reviewId}`);
     return Promise.resolve(response);
   } catch (error) {
     return Promise.resolve(error);
