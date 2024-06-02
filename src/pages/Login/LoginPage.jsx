@@ -17,7 +17,7 @@ const LoginPage = () => {
 
         <LoginForm>
           <div className="inputs">
-            <input className="id" placeholder="ID 또는 E-Mail" />
+            <input className="id" placeholder="ID 또는 E-Mail " />
             <input className="pw" placeholder="비밀번호" />
           </div>
           <div className="btn">로그인</div>
@@ -93,7 +93,7 @@ const LoginForm = styled.div`
   input {
     display: flex;
     width: 290px;
-    padding: 11px 178px 10px 16px;
+    padding: 11px 10px 10px 16px;
     box-sizing: border-box;
     border-radius: 4px;
     border: 1px solid var(--grey2);
