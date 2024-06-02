@@ -12,6 +12,7 @@ const Review = () => {
   const { productId } = useParams();
   const [reviewText, setReviewText] = useState("");
   const [data, setData] = useState([]);
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
   const handleSort = sortName => {
     setSort(sortName === sort ? sort : sortName);
@@ -19,6 +20,9 @@ const Review = () => {
 
   const handleReviewTextChange = event => {
     setReviewText(event.target.value);
+  };
+  const handleImageChange = event => {
+    setImage(event.target.files[0]);
   };
   const accessToken = localStorage.getItem("paladintoken");
 
@@ -30,11 +34,15 @@ const Review = () => {
       const reviewData = {
         content: reviewText,
         rating: 5,
+        image: image,
       };
+
       const accessToken = localStorage.getItem("paladintoken");
 
       console.log("Submitting review with data:", reviewData);
       console.log("Using access token:", accessToken);
+      setReviewText("");
+      setImage(null);
       try {
         const response = await CreateReview({
           productId,
@@ -42,7 +50,6 @@ const Review = () => {
           accessToken,
         });
         console.log("Review submitted successfully:", response);
-        setReviewText("");
       } catch (error) {
         console.error("Error data:", error.response.data);
         console.error("Error status:", error.response.status);
@@ -51,20 +58,6 @@ const Review = () => {
       }
     }
   };
-
-  useEffect(() => {
-    GetReview({ productId })
-      .then(res => setData(res.data))
-      .catch(error => {
-        if (error.code === "ERR_NETWORK") {
-          console.error(
-            "Network error: Please check your internet connection or the server status.",
-          );
-        } else {
-          console.error("Error:", error.message);
-        }
-      });
-  }, []);
 
   return (
     <>
@@ -99,6 +92,7 @@ const Review = () => {
 
         <div className="add-photo">
           <div className="add-photo-text">사진 추가</div>
+          <input type="file" onChange={handleImageChange} />
           <div>
             <img src={add_photo} />
           </div>

@@ -51,10 +51,16 @@ export const Productlist = async ({ productId }) => {
 };
 
 export const CreateReview = async ({ productId, reviewData, accessToken }) => {
+  const formData = new FormData();
+  formData.append("content", reviewData.content);
+  formData.append("rating", reviewData.rating);
+  if (reviewData.image) {
+    formData.append("image", reviewData.image);
+  }
   try {
     const response = await client.post(
       `/api/products/${productId}/reviews`,
-      reviewData,
+      formData,
       {
         headers: {
           "Content-Type": "multipart/form-data",
