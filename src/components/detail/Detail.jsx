@@ -43,7 +43,10 @@ const Detail = ({
                 <div className="stock-location">
                   <div className="stock">
                     <p className="stock-text"></p>재고:
-                    <p className="stock-value">{stock}부</p>
+                    <p className="stock-value">
+                      {stock}
+                      {type == "도서" ? "부" : "개"}
+                    </p>
                   </div>
                   <div className="location">
                     {type} 위치: <p>{location}</p>
@@ -54,7 +57,7 @@ const Detail = ({
               <>
                 <div className="stock">
                   <p className="stock-text"></p>재고:
-                  <p className="stock-value">{stock}부</p>
+                  <p className="stock-value">{stock}개</p>
                 </div>
               </>
             )}

@@ -42,7 +42,7 @@ const RecordDetailItem = ({
                   <></>
                 )}
                 <div className="price">
-                  가격: <p>{price}</p>
+                  가격: <p>{price}원</p>
                 </div>
                 <div className="state">
                   상태:<p>{state}</p>

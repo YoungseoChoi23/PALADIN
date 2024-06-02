@@ -30,7 +30,6 @@ const Review = () => {
       const reviewData = {
         content: reviewText,
         rating: 5,
-        memberId: 1,
       };
       const accessToken = localStorage.getItem("paladintoken");
 
@@ -45,6 +44,9 @@ const Review = () => {
         console.log("Review submitted successfully:", response);
         setReviewText("");
       } catch (error) {
+        console.error("Error data:", error.response.data);
+        console.error("Error status:", error.response.status);
+        console.error("Error headers:", error.response.headers);
         console.error("Error submitting review:", error);
       }
     }
