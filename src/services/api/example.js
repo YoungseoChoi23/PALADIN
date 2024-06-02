@@ -57,7 +57,7 @@ export const CreateReview = async ({ productId, reviewData, accessToken }) => {
       reviewData,
       {
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "multipart/form-data",
           Authorization: `${accessToken}`,
         },
       },
