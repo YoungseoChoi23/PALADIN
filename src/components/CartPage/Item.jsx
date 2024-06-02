@@ -20,7 +20,7 @@ const Item = ({ data }) => {
 
   return (
     <Wrapper>
-      <img />
+      <img src={data.imgPath} />
       <div className="description">
         <h2 className="title">{data.productName}</h2>
         <span className="info">{data.info}</span>
